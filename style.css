@@ -38,7 +38,7 @@ li{
 	font-weight:bold;
 	text-transform:capitalize;
     text-align:center;
-    margin: 0px 0;
+    margin: 0px 0px;
 	padding:0px 0px 0px 0px;
 	}
 .menu>ul>li>img{
@@ -67,8 +67,6 @@ li{
         position: fixed;
         display: none;
         top: 50px;
-}.sub-menu>li{
-    width: 200%;
 }
 .sub-menu>li>a{
     color: black;
@@ -78,11 +76,15 @@ li{
 }
 .tabbox{
     background-color: #CF7500;
-    border: #1a1c20 solid .5px;
     height: 25px;
-    padding: 5px;
-    width:auto;
-    margin-left: 50%;
+    width:100%;
+    min-width: 186px;
+    text-align: left;
+    margin-left: -40px;
+}
+.tabbox:hover{
+    background-color: yellow;
+    border: solid .5px black;
 }
 .timkiem{
     height: 40px;
