@@ -4,12 +4,13 @@ input{
 }
 .tab:hover{
     background-color: #CF7500;
-    height: 40px;
+    border-radius: 5px;
 }
 .tab{
     padding-top: 20px;
     top:0 ;
     vertical-align: 50%;
+    height: 40px;
 }
 
 li{
@@ -48,6 +49,13 @@ li{
     vertical-align: 140%;
     padding: 5px;
 }
+.beephone>a{
+    vertical-align: 170%;
+    color: #f4f4f4;
+}
+.beephone>a>span{
+    color: #1a1c20;
+}
 .menu>ul>li>a>span{
     color: white;
 }
@@ -64,9 +72,7 @@ li{
 }
                                 /* submenu */
 .sub-menu{
-        position: fixed;
         display: none;
-        top: 50px;
 }
 .sub-menu>li>a{
     color: black;
@@ -74,17 +80,23 @@ li{
     background-color: #CF7500;
     border: solid .5px black;
 }
+.box{
+    width: 100%;
+    background-color: hsl(46, 100%, 76%);
+    min-width: 186px;
+    border-radius: 5px;
+}
 .tabbox{
-    background-color: #CF7500;
     height: 25px;
     width:100%;
-    min-width: 186px;
+    min-width: 176px;
     text-align: left;
-    margin-left: -40px;
+    margin: 0px 5px 5px -40px;
+    padding: 0px 5px 5px 5px;
+    border-radius: 5px;
 }
 .tabbox:hover{
-    background-color: yellow;
-    border: solid .5px black;
+    background-color: white;
 }
 .timkiem{
     height: 40px;
