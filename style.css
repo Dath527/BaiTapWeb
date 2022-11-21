@@ -87,11 +87,7 @@ li{
     border-radius: 5px;
 }
 .tabbox{
-
-    height: 25px;
-
-    height: 35px;
-
+    height: 20px;
     width:100%;
     min-width: 176px;
     text-align: left;
@@ -99,8 +95,9 @@ li{
     padding: 0px 5px 5px 5px;
     border-radius: 5px;
 }
-.tabbox:hover{
-    background-color: white;
+.tabbox>a:hover{
+    color: #CF7500;
+    font-weight: bold;
 }
 .timkiem{
     height: 40px;
@@ -119,7 +116,7 @@ li{
     height: 160px;
 }
 .sanpham{
-    border: solid 1px white;
+    border: solid 1px wheat;
     background-color: white;
     border-radius: 20px;
     display: inline-block;
