@@ -9,11 +9,14 @@
         $ten_sp = $_POST['ten_sp'];
     }
     if($_POST['gia_sp'] == ''){
+
         $error_gia_sp = '<span style="color:red;">(*)</span>';
+
     }
     else{$gia_sp = $_POST['gia_sp'];
     }
     if($_POST['so_luong'] == ''){
+
         $error_so_luong = '<span style="color:red;">(*)</span>';
     }
     else{$so_luong = $_POST['so_luong'];
@@ -27,19 +30,24 @@
     }
     if($_POST['comment'] == ''){
         $error_comment = '<span style="color:red;">(*)</span>';
+
     }
     else{
         $comment = $_POST['comment'];
     }
+
     if($_POST['id_dienthoai'] == 'unselect'){
         $error_id_dienthoai = '<span style="color:red;">(*)</span>';
     }
     else{
         $id_dienthoai = $_POST['id_dienthoai'];
+
+
     }
         // $dac_biet = $_POST['dac_biet'];
     }
 ?>
+
 
 <?php
     include_once('ketnoi.php');
@@ -55,6 +63,7 @@
     }
 ?>
 <!DOCTYPE html>     
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -68,9 +77,11 @@
         <div class="menu">
             <ul>
                 <li style="margin: 0; width: 10%;"><div class="beephone"><img width="70px" height="70px" src="images/beephone.png" alt="logo" >
+
                 <a  href="trangchu.php">Bee<span>Phone</span></a></div></li>
                 <li><div class="tab"><a href="trangchu.php?page_layout=thanhvien">Thành viên</a></div></li>
                 <li><div class="tab" id="dienthoaibtn"><a href="danhsachsp.php?page_layout=dienthoai">Điện thoại</a></div>
+
                     <div class="box">
                     <ul class="sub-menu" id="dienthoaimenu">
                         <li><div class="tabbox"><a href="">Iphone</a></div></li>
@@ -83,7 +94,9 @@
                     </ul>
                     </div>
                 </li>
+
                 <li><div class="tab" id="laptopbtn"><a href="trangchu.php?page_layout=laptop">Laptop</a></div>
+
                     <div class="box">
                     <ul class="sub-menu" id="laptopmenu">
                         <li><div class="tabbox"><a href="">Macbook</a></div></li>
@@ -95,6 +108,7 @@
                     </ul>
                     </div>
                 </li>
+
                 <li><div class="tab" id="maytinhbangbtn"><a href="trangchu.php?page_layout=maytinhbang">Máy tính bảng</a></div>
                     <div class="box">
                     <ul class="sub-menu" id="maytinhbangmenu">
@@ -106,7 +120,9 @@
                     </ul>
                     </div>
                 </li>
+
                 <li><div class="tab" id="phukienbtn"><a href="trangchu.php?page_layout=phukien">Phụ kiện</a></div>
+
                     <div class="box">
                     <ul class="sub-menu" id="phukienmenu">
                         <li><div class="tabbox"><a href="">Tai nghe</a></div></li>
@@ -166,6 +182,7 @@
                     <br>
                         <input type="submit" name="submit" value="Thêm mới" />
                         <input type="reset" name="reset" value="Làm mới" />
+
                 </div>
             </form>
         </div>
