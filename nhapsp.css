@@ -2,6 +2,10 @@ input{
     border-radius: 5px;
     height: 25px;
 }
+li{
+    list-style: none;
+}
+                                    /* menu */
 .tab:hover{
     background-color: #CF7500;
     border-radius: 5px;
@@ -12,11 +16,6 @@ input{
     vertical-align: 50%;
     height: 40px;
 }
-
-li{
-    list-style: none;
-}
-                                    /* menu */
 .menu{
 	height:100px;
     background-color: #f0a500;
@@ -87,11 +86,7 @@ li{
     border-radius: 5px;
 }
 .tabbox{
-
-    height: 25px;
-
     height: 35px;
-
     width:100%;
     min-width: 176px;
     text-align: left;
@@ -113,42 +108,16 @@ li{
 .body{
     padding-top: 150px;
     background-color: #f4f4f4;
-}
-.anh{
-    width: 160px;
-    height: 160px;
-}
-.sanpham{
-    border: solid 1px white;
-    background-color: white;
-    border-radius: 20px;
-    display: inline-block;
-    margin: 0px 15px 15px 5px;
-    padding: 5px;
-    position: relative;
-}
-.tensanpham{
-    height: 50px;
-    text-align: left;
-    margin: 2px 10px;
-}
-.giatien{
-    height: 20px;
-    text-align: left;
-    margin: 2px 10px;
-    color: red;
-    padding-bottom: 25px;
-}
-.row{
-    margin: auto;
-    border: black;
-    position: relative;
-    align-items: center;
     text-align: center;
-    width: 1000px;
 }
 .container{
     border: 1px black;
+}
+.container>table{
+    text-align: center;
+    margin: auto;
+    padding: auto;
+    border:#1a1c20 solid .5px;
 }
                                     /* footer */
 .footer{
