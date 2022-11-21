@@ -14,12 +14,18 @@
 
     }
     else{$gia_sp = $_POST['gia_sp'];
+        if ($gia_sp <= 0) {
+            $error_gia_sp = '<span style="color:red;">(*)</span>';
+        }
     }
     if($_POST['so_luong'] == ''){
 
         $error_so_luong = '<span style="color:red;">(*)</span>';
     }
     else{$so_luong = $_POST['so_luong'];
+    if ($so_luong <= 0) {
+            $error_so_luong = '<span style="color:red;">(*)</span>';
+        }
     }
     if($_FILES['anh_sp']['name'] == ''){
         $error_anh_sp = '<span style="color:red;">(*)</span>';
