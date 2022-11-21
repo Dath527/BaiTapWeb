@@ -1,0 +1,137 @@
+input{
+    border-radius: 5px;
+    height: 25px;
+}
+li{
+    list-style: none;
+}
+                                    /* menu */
+.tab:hover{
+    background-color: #CF7500;
+    border-radius: 5px;
+}
+.tab{
+    padding-top: 20px;
+    top:0 ;
+    vertical-align: 50%;
+    height: 40px;
+}
+.menu{
+	height:100px;
+    background-color: #f0a500;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+	}	
+.menu a{
+    text-decoration: none;
+    color:#1a1c20 ;
+}
+.menu>ul>li{
+    float: left;
+	list-style:none;
+    width:10%;
+	height:15px;
+	font-family:sans-serif;
+	font-size:17px;
+	font-weight:bold;
+	text-transform:capitalize;
+    text-align:center;
+    margin: 0px 0px;
+	padding:0px 0px 0px 0px;
+	}
+.menu>ul>li>img{
+    margin-bottom: 0px;
+}
+.menu>ul>li>a{
+    vertical-align: 140%;
+    padding: 5px;
+}
+.beephone>a{
+    vertical-align: 170%;
+    color: #f4f4f4;
+}
+.beephone>a>span{
+    color: #1a1c20;
+}
+.menu>ul>li>a>span{
+    color: white;
+}
+.menu>ul>li>input{
+    width: 250px;
+    height: 40px;
+    border: solid black 2px;
+    border-radius: 15px;
+    font-size: 24px;
+    margin-top: 0px;
+}
+.menu>ul>li>a:hover{
+    background-color: #CF7500;
+}
+                                /* submenu */
+.sub-menu{
+        display: none;
+}
+.sub-menu>li>a{
+    color: black;
+    font-size: 20px;
+    background-color: #CF7500;
+    border: solid .5px black;
+}
+.box{
+    width: 100%;
+    background-color: hsl(46, 100%, 76%);
+    min-width: 186px;
+    border-radius: 5px;
+}
+.tabbox{
+    height: 20px;
+    width:100%;
+    min-width: 176px;
+    text-align: left;
+    margin: 0px 5px 5px -40px;
+    padding: 0px 5px 5px 5px;
+    border-radius: 5px;
+}
+.tabbox:hover{
+    background-color: white;
+}
+.timkiem{
+    height: 40px;
+    border: solid 2px black;
+    border-radius: 10px;
+    margin-top: 10px;
+    width: 200px;
+}
+                                /* body */
+.body{
+    padding-top: 150px;
+    background-color: #f4f4f4;
+}
+.container{
+    border: 1px black;
+}
+.container>table{
+    margin: auto;
+    padding: auto;
+}
+                                    /* footer */
+.footer{
+    border-top:solid 40px #CF7500;
+    width: 100%;
+    background-color: #1a1c20;
+    color: #f4f4f4;
+    height: fit-content;
+    position:absolute;
+}
+.footer ul li{
+    float: left;
+    width: 50%;
+    vertical-align: middle;
+    text-align: center;
+}
+.logo-footer{
+    padding-top: 5px;
+    height: 160px;
+}
