@@ -12,9 +12,9 @@
         <div class="menu">
             <ul>
                 <li style="margin: 0; width: 10%;"><div class="beephone"><img width="70px" height="70px" src="images/beephone.png" alt="logo" >
-                <a  href="">Bee<span>Phone</span></a></div></li>
-                <li><div class="tab"><a href="">Thành viên</a></div></li>
-                <li><div class="tab" id="dienthoaibtn"><a href="">Điện thoại</a></div>
+                <a  href="trangchu.php">Bee<span>Phone</span></a></div></li>
+                <li><div class="tab"><a href="trangchu.php?page_layout=thanhvien">Thành viên</a></div></li>
+                <li><div class="tab" id="dienthoaibtn"><a href="danhsachsp.php?page_layout=dienthoai">Điện thoại</a></div>
                     <div class="box">
                     <ul class="sub-menu" id="dienthoaimenu">
                         <li><div class="tabbox"><a href="">Iphone</a></div></li>
@@ -27,7 +27,7 @@
                     </ul>
                     </div>
                 </li>
-                <li><div class="tab" id="laptopbtn"><a href="">Laptop</a></div>
+                <li><div class="tab" id="laptopbtn"><a href="trangchu.php?page_layout=laptop">Laptop</a></div>
                     <div class="box">
                     <ul class="sub-menu" id="laptopmenu">
                         <li><div class="tabbox"><a href="">Macbook</a></div></li>
@@ -40,7 +40,7 @@
                     </ul>
                     </div>
                 </li>
-                <li><div class="tab" id="maytinhbangbtn"><a href="">Máy tính bảng</a></div>
+                <li><div class="tab" id="maytinhbangbtn"><a href="trangchu.php?page_layout=maytinhbang">Máy tính bảng</a></div>
                     <div class="box">
                     <ul class="sub-menu" id="maytinhbangmenu">
                         <li><div class="tabbox"><a href="">Ipad</a></div></li>
@@ -51,7 +51,7 @@
                     </ul>
                     </div>
                 </li>
-                <li><div class="tab" id="phukienbtn"><a href="">Phụ kiện</a></div>
+                <li><div class="tab" id="phukienbtn"><a href="trangchu.php?page_layout=phukien">Phụ kiện</a></div>
                     <div class="box">
                     <ul class="sub-menu" id="phukienmenu">
                         <li><div class="tabbox"><a href="">Tai nghe</a></div></li>

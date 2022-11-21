@@ -12,6 +12,9 @@ input{
     vertical-align: 50%;
     height: 40px;
 }
+html{
+    font-family:sans-serif;
+}
 
 li{
     list-style: none;

@@ -5,6 +5,9 @@ input{
 li{
     list-style: none;
 }
+html{
+    font-family:sans-serif;
+}
                                     /* menu */
 .tab:hover{
     background-color: #CF7500;
