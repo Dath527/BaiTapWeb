@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/danhsachsp.css">
+    <link rel="stylesheet" href="css/themsp.css">
 </head>
 <body>
     <header>
@@ -68,28 +68,33 @@
         </div>
     </header>
     <div class="body">
-        <a href="">thêm sản phẩm</a>
         <div class="container">
-            <table>
-                <tr>
-                    <th width="5%">ID</th>
-                    <th width="40%">Tên sản phẩm</th>
-                    <th width="20%">Ảnh sản phẩm</th>
-                    <th width="10%">Giá</th>
-                    <th width="10%">Loại</th>
-                    <th width="10%">Sửa</th>
-                    <th width="10%">Xóa</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table>
+        <table>
+        <tr>
+            <td class="col1">Tên sản phẩm</td>
+            <td class="col2"><input type="text" name="tensp" id="tensp"></td>
+        </tr>
+        <tr>
+            <td class="col1">Giá sản phẩm</td>
+            <td class="col2"><input type="number" name="giasp" id="giasp"></td>
+        </tr>
+        <tr>
+            <td class="col1">Loại SP</td>
+            <td class="col2"><input type="text" name="tenhang" id="tenhang"></td>
+        </tr>
+        <tr>
+            <td class="col1">Ảnh sản phẩm</td>
+            <td class="col2"><input type="file" name="anhsp" id="anhsp"></td>
+        </tr>
+        <tr>
+            <td class="col1">Số lượng</td>
+            <td class="col2"><input type="number" name="soluong" id="soluong"></td>
+        </tr>
+        <tr>
+            <td class="col1">Comment</td>
+            <td class="col2"><Textarea></Textarea></td>
+        </tr>
+        </table>
         </div>
     </div>
     <footer>
