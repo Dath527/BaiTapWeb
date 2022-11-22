@@ -11,4 +11,7 @@ Sản phẩm
 	Số lượng
 	ảnh
 	comment(tình trạng, khuyến mãi, chi tiết, trạng thái)
-
+đăng nhập đăng xuất
+sửa sp
+tìm kiếm
+nhập xuất

@@ -15,6 +15,11 @@ input{
 html{
     font-family:sans-serif;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 li{
     list-style: none;
@@ -113,6 +118,7 @@ li{
 .body{
     padding-top: 150px;
     background-color: #f4f4f4;
+    min-height: 500px;
 }
 .anh{
     width: 160px;
@@ -149,21 +155,32 @@ li{
 }
 .container{
     border: 1px black;
+    text-align:center;
 }
                                     /* footer */
+footer{
+    background-color:black;
+}
 .footer{
     border-top:solid 40px #CF7500;
-    width: 100%;
     background-color: #1a1c20;
     color: #f4f4f4;
     height: fit-content;
-    position:absolute;
+    position: sticky;
+    bottom: 0;
 }
-.footer ul li{
-    float: left;
+.left{
     width: 50%;
-    vertical-align: middle;
     text-align: center;
+    margin: 0;
+    display: inline-block;
+}
+.right{
+    width: 50%;
+    text-align: center;
+    margin: 0;
+    display: inline-block;
+    float:right;
 }
 .logo-footer{
     padding-top: 5px;
