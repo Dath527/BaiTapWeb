@@ -11,6 +11,14 @@ html{
 textarea{
     border-radius: 5px;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
                                     /* menu */
 .tab:hover{
     background-color: #CF7500;
@@ -114,6 +122,7 @@ textarea{
 .body{
     padding-top: 150px;
     background-color: #f4f4f4;
+    min-height: 500px;
 }
 .container{
     border: 1px black;
@@ -159,19 +168,29 @@ textarea{
     cursor: pointer;
 }
                                     /* footer */
+footer{
+    background-color:black;
+}
 .footer{
     border-top:solid 40px #CF7500;
-    width: 100%;
     background-color: #1a1c20;
     color: #f4f4f4;
     height: fit-content;
-    position:absolute;
+    position: sticky;
+    bottom: 0;
 }
-.footer ul li{
-    float: left;
+.left{
     width: 50%;
-    vertical-align: middle;
     text-align: center;
+    margin: 0;
+    display: inline-block;
+}
+.right{
+    width: 50%;
+    text-align: center;
+    margin: 0;
+    display: inline-block;
+    float:right;
 }
 .logo-footer{
     padding-top: 5px;

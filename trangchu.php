@@ -1,3 +1,44 @@
+<?php
+    // Nhận biến Page(Số thứ tự của Trang)
+    if(isset($_GET['page'])){
+        $page = $_GET['page'];
+    }
+    else{
+        $page = 1;
+    }
+    $timkiem = $_GET['timkiem'];
+    // Hiển thị số Sản phẩm trên một trang
+    $rowsPerPage = 10;
+
+    // Tính vị trí mẩu tin đầu tiên của mỗi trang
+    $firstRow = $page*$rowsPerPage - $rowsPerPage;
+
+    // Liệt kê Danh sách dữ liệu trên mỗi trang
+    include_once('ketnoi.php');
+    $sql = "SELECT * FROM sanpham
+            INNER JOIN dmdienthoai
+            ON sanpham.id_dienthoai = dmdienthoai.id_dienthoai Where ten_sp like '%$timkiem%'
+            ORDER BY id_sp DESC
+            LIMIT $firstRow, $rowsPerPage";
+    $query = mysqli_query($dbConnect, $sql);
+    
+    // Tổng số Sản phẩm trong CSDL
+    $sqlSelect = "SELECT * FROM sanpham";
+    $totalRow = mysqli_num_rows(mysqli_query($dbConnect, $sqlSelect));
+    // Tính tổng số trang
+    $totalPage = ceil($totalRow/$rowsPerPage);
+
+    $listPage = '';
+    for($i=1; $i <= $totalPage; $i++){
+        if($i == $page){
+            $listPage .= '<span>'.$i.'</span> ';
+        }
+        else{
+            $listPage .= '<a href="'.$_SERVER['PHP_SELF'].'?page_layout=danhsachsp&page='.$i.'">'.$i.'</a> ';
+        }
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,9 +53,9 @@
         <div class="menu">
             <ul>
                 <li style="margin: 0; width: 10%;"><div class="beephone"><img width="70px" height="70px" src="images/beephone.png" alt="logo" >
-                <a  href="trangchu.html">Bee<span>Phone</span></a></div></li>
-                <li><div class="tab"><a href="trangchu.html?page_layout=thanhvien">Thành viên</a></div></li>
-                <li><div class="tab" id="dienthoaibtn"><a href="danhsachsp.html?page_layout=dienthoai">Điện thoại</a></div>
+                <a  href="trangchu.php">Bee<span>Phone</span></a></div></li>
+                <li><div class="tab"><a href="trangchu.php?page_layout=thanhvien">Thành viên</a></div></li>
+                <li><div class="tab" id="dienthoaibtn"><a href="danhsachsp.php?page_layout=dienthoai">Điện thoại</a></div>
                     <div class="box">
                     <ul class="sub-menu" id="dienthoaimenu">
                         <li><div class="tabbox"><a href="">Iphone</a></div></li>
@@ -27,7 +68,7 @@
                     </ul>
                     </div>
                 </li>
-                <li><div class="tab" id="laptopbtn"><a href="trangchu.html?page_layout=laptop">Laptop</a></div>
+                <li><div class="tab" id="laptopbtn"><a href="trangchu.php?page_layout=laptop">Laptop</a></div>
                     <div class="box">
                     <ul class="sub-menu" id="laptopmenu">
                         <li><div class="tabbox"><a href="">Macbook</a></div></li>
@@ -40,7 +81,7 @@
                     </ul>
                     </div>
                 </li>
-                <li><div class="tab" id="maytinhbangbtn"><a href="trangchu.html?page_layout=maytinhbang">Máy tính bảng</a></div>
+                <li><div class="tab" id="maytinhbangbtn"><a href="trangchu.php?page_layout=maytinhbang">Máy tính bảng</a></div>
                     <div class="box">
                     <ul class="sub-menu" id="maytinhbangmenu">
                         <li><div class="tabbox"><a href="">Ipad</a></div></li>
@@ -51,7 +92,7 @@
                     </ul>
                     </div>
                 </li>
-                <li><div class="tab" id="phukienbtn"><a href="trangchu.html?page_layout=phukien">Phụ kiện</a></div>
+                <li><div class="tab" id="phukienbtn"><a href="trangchu.php?page_layout=phukien">Phụ kiện</a></div>
                     <div class="box">
                     <ul class="sub-menu" id="phukienmenu">
                         <li><div class="tabbox"><a href="">Tai nghe</a></div></li>
@@ -62,7 +103,7 @@
                     </ul>
                     </div>
                 </li>
-                <li style="width: 220px;"><div><input placeholder="Tìm kiếm" type="text" class="timkiem"></div></li>
+                <li style="width: 220px;"><div><form><input placeholder="Tìm kiếm" type="search" class="timkiem" name="timkiem" onsubmit=""></form></div></li>
                 <li><div class="tab"><a href="">Giỏ hàng</a></div></li>
                 <li><div class="tab"><a href="">Đăng nhập</a></div></li>
             </ul>
@@ -71,187 +112,38 @@
     <div class="body">
         <div class="container">
             <div class="row">   
-                <div class="sanpham">
+                <?php while($row = mysqli_fetch_array($query)){?>
+                    <div class="sanpham">
                     <div class="anhsanpham">
-                    <img src="images/beephone.png" alt="điện thoại" class="anh">
+                    <img src="images/<?php echo $row['anh_sp'];?>" alt="điện thoại" class="anh">
                     </div>
                     <div class="tensanpham">
-                            abc
+                        <?php echo $row['ten_sp'];?>
                     </div>
                     <div class="giatien">
-                            123
+                        <?php echo $row['gia_sp'];?>
                     </div>
                 </div>
-                <div class="sanpham">
-                    <div class="anhsanpham">
-                    <img src="images/beephone.png" alt="điện thoại" class="anh">
-                    </div>
-                    <div class="tensanpham">
-                            abc
-                    </div>
-                    <div class="giatien">
-                            123
-                    </div>
-                </div>
-                <div class="sanpham">
-                    <div class="anhsanpham">
-                    <img src="images/beephone.png" alt="điện thoại" class="anh">
-                    </div>
-                    <div class="tensanpham">
-                            abc
-                    </div>
-                    <div class="giatien">
-                            123
-                    </div>
-                </div>
-                <div class="sanpham">
-                    <div class="anhsanpham">
-                    <img src="images/beephone.png" alt="điện thoại" class="anh">
-                    </div>
-                    <div class="tensanpham">
-                            abc
-                    </div>
-                    <div class="giatien">
-                            123
-                    </div>
-                </div>
-                <div class="sanpham">
-                    <div class="anhsanpham">
-                    <img src="images/beephone.png" alt="điện thoại" class="anh">
-                    </div>
-                    <div class="tensanpham">
-                            abc
-                    </div>
-                    <div class="giatien">
-                            123
-                    </div>
-                </div>
-                <div class="sanpham">
-                    <div class="anhsanpham">
-                    <img src="images/beephone.png" alt="điện thoại" class="anh">
-                    </div>
-                    <div class="tensanpham">
-                            abc
-                    </div>
-                    <div class="giatien">
-                            123
-                    </div>
-                </div>
-                <div class="sanpham">
-                    <div class="anhsanpham">
-                    <img src="images/beephone.png" alt="điện thoại" class="anh">
-                    </div>
-                    <div class="tensanpham">
-                            abc
-                    </div>
-                    <div class="giatien">
-                            123
-                    </div>
-                </div>
-                <div class="sanpham">
-                    <div class="anhsanpham">
-                    <img src="images/beephone.png" alt="điện thoại" class="anh">
-                    </div>
-                    <div class="tensanpham">
-                            abc
-                    </div>
-                    <div class="giatien">
-                            123
-                    </div>
-                </div>
-                <div class="sanpham">
-                    <div class="anhsanpham">
-                    <img src="images/beephone.png" alt="điện thoại" class="anh">
-                    </div>
-                    <div class="tensanpham">
-                            abc
-                    </div>
-                    <div class="giatien">
-                            123
-                    </div>
-                </div>
-                <div class="sanpham">
-                    <div class="anhsanpham">
-                    <img src="images/beephone.png" alt="điện thoại" class="anh">
-                    </div>
-                    <div class="tensanpham">
-                            abc
-                    </div>
-                    <div class="giatien">
-                            123
-                    </div>
-                </div>
-                <div class="sanpham">
-                    <div class="anhsanpham">
-                    <img src="images/beephone.png" alt="điện thoại" class="anh">
-                    </div>
-                    <div class="tensanpham">
-                            abc
-                    </div>
-                    <div class="giatien">
-                            123
-                    </div>
-                </div>
-                <div class="sanpham">
-                    <div class="anhsanpham">
-                    <img src="images/beephone.png" alt="điện thoại" class="anh">
-                    </div>
-                    <div class="tensanpham">
-                            abc
-                    </div>
-                    <div class="giatien">
-                            123
-                    </div>
-                </div>
-                <div class="sanpham">
-                    <div class="anhsanpham">
-                    <img src="images/beephone.png" alt="điện thoại" class="anh">
-                    </div>
-                    <div class="tensanpham">
-                            abc
-                    </div>
-                    <div class="giatien">
-                            123
-                    </div>
-                </div>
-                <div class="sanpham">
-                    <div class="anhsanpham">
-                    <img src="images/beephone.png" alt="điện thoại" class="anh">
-                    </div>
-                    <div class="tensanpham">
-                            abc
-                    </div>
-                    <div class="giatien">
-                            123
-                    </div>
-                </div>
-                <div class="sanpham">
-                    <div class="anhsanpham">
-                    <img src="images/beephone.png" alt="điện thoại" class="anh">
-                    </div>
-                    <div class="tensanpham">
-                            abc
-                    </div>
-                    <div class="giatien">
-                            123
-                    </div>
-                </div>
+                <?php }?>
                 
             </div>
+            <p id="pagination"><?php echo $listPage; ?></p>
         </div>
     </div>
     <footer>
         <div class="footer">
-            <ul>
-                <li>
-                    <h2>Đây là bài thực hành thiết kế web của nhóm 11</h2>
-                    <p>Vũ Tiến Đạt, Lê Đức Thuận, Nguyễn Thế Bảo</p>
-                    <p>Nguyễn Thị Như Quỳnh, Nguyễn Minh Quân</p>
-                    <p>Bản Quyền thuộc về nhóm 11 - 71DCTT22</p>
-                </li>
-                <li>
+            <div class="foot">
+                <div class="left">
+                        <h2>Đây là bài thực hành thiết kế web của nhóm 11</h2>
+                        <p>Vũ Tiến Đạt, Lê Đức Thuận, Nguyễn Thế Bảo</p>
+                        <p>Nguyễn Thị Như Quỳnh, Nguyễn Minh Quân</p>
+                        <p>Bản Quyền thuộc về nhóm 11 - 71DCTT22</p>
+                </div>
+                <div class="right">
                     <img src="images/utt.png" alt="logo utt" class="logo-footer">
-                </li>   
+                </div>
+            </ul>
+            </div>  
         </div>
     </footer>
     <script>
