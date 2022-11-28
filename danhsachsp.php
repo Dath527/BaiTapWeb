@@ -117,6 +117,9 @@
     </header>
     <div class="body">
         <a href="themsp.php">thêm sản phẩm</a>
+        <form action="POST">
+        <input type="submit" value="Xuất Excel" name="btnXuatExcel">
+        </form>
         <div class="container">
             <table>
                 <tr>
