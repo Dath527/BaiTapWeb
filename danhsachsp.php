@@ -5,6 +5,7 @@
     }
 </script>
 <?php
+    require('xuatexcel.php');
     // Nhận biến Page(Số thứ tự của Trang)
     if(isset($_GET['page'])){
         $page = $_GET['page'];
@@ -20,7 +21,7 @@
     $firstRow = $page*$rowsPerPage - $rowsPerPage;
 
     // Liệt kê Danh sách dữ liệu trên mỗi trang
-    include_once('ketnoi.php');
+    require('ketnoi.php');
     $sql = "SELECT * FROM sanpham
             INNER JOIN dmdienthoai
             ON sanpham.id_dienthoai = dmdienthoai.id_dienthoai
@@ -117,7 +118,7 @@
     </header>
     <div class="body">
         <a href="themsp.php">thêm sản phẩm</a>
-        <form action="POST">
+        <form method="POST">
         <input type="submit" value="Xuất Excel" name="btnXuatExcel">
         </form>
         <div class="container">
