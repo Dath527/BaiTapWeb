@@ -137,6 +137,7 @@ li{
     height: 50px;
     text-align: left;
     margin: 2px 10px;
+    max-width: 140px;
 }
 .giatien{
     height: 20px;
@@ -144,6 +145,7 @@ li{
     margin: 2px 10px;
     color: red;
     padding-bottom: 25px;
+    max-width: 160px;
 }
 .row{
     margin: auto;
