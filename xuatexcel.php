@@ -3,7 +3,7 @@ include_once('ketnoi.php');
 require('Classes/PHPExcel.php');
 
 if(isset($_POST['btnXuatExcel'])){
-        $objExcel=new PHPExcel();
+        $objExcel = new PHPExcel();
         $objExcel->setActiveSheetIndex(0);
         $sheet=$objExcel->getActiveSheet()->setTitle('DSSP');
         $rowCount=1;
@@ -24,7 +24,6 @@ if(isset($_POST['btnXuatExcel'])){
 
         while($row=mysqli_fetch_array($kq))
         {
-            print_r($row);
             $rowCount++;
             $sheet->setCellValue('A'.$rowCount,$row['id_sp']);
             $sheet->setCellValue('B'.$rowCount,$row['ten_sp']);
@@ -45,5 +44,6 @@ if(isset($_POST['btnXuatExcel'])){
         header('Cache-Control: must-revalidate');
         header('Pragma: no-cache');
         readfile($fileName);
+        return;
     }
 ?>

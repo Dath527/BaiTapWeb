@@ -1,9 +1,3 @@
-<script language="javascript">
-    function xoaSanpham(){
-        let conf = confirm('Bạn chắc chắn muốn xóa sản phẩm này không?');
-        return conf;
-    }
-</script>
 <?php
     require('xuatexcel.php');
     // Nhận biến Page(Số thứ tự của Trang)
@@ -138,7 +132,7 @@
                         <td class="tensanpham"><a href="#"><?php echo $row['ten_sp'];?></a></td>
                         <td class="gia"><span class="price"><?php echo $row['gia_sp'];?></span></td>
                         <td class="nhacungcap"><?php echo $row['ten_dienthoai'];?></td>
-                        <td><span class="thumb"><img class="anhdanhsach" width="60" src="images/<?php echo $row['anh_sp'];?>" /></span></td>
+                        <td><span class="thumb"><img class="anhdanhsach" alt="sanpham" width="60" src="images/<?php echo $row['anh_sp'];?>" /></span></td>
                         <td><a href="suasp.php?page_layout=suasp&id_sp=<?php echo $row["id_sp"] ?>"><span>Sửa</span></a>
                         </td>
                         <td><a onclick="return xoaSanpham();" href="xoasp.php?id_sp=<?php echo $row['id_sp'];?>"><span>Xóa</span></a></td>
@@ -245,6 +239,10 @@ el4.addEventListener('mouseout', function handleMouseOut() {
 hiddenEl4.addEventListener('mouseover', function handleMouseOver() {
   hiddenEl4.style.display = 'block';
 });
+function xoaSanpham(){
+        let conf = confirm('Bạn chắc chắn muốn xóa sản phẩm này không?');
+        return conf;
+    }
     </script>
 </body>
 </html>
