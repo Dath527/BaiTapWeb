@@ -1,7 +1,6 @@
 <?php
 include_once('ketnoi.php');
 require('Classes/PHPExcel.php');
-
 if(isset($_POST['btnXuatExcel'])){
         $objExcel = new PHPExcel();
         $objExcel->setActiveSheetIndex(0);

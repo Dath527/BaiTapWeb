@@ -7,7 +7,7 @@
     else{
         $page = 1;
     }
-
+ 
     // Hiển thị số Sản phẩm trên một trang
     $rowsPerPage = 10;
 
@@ -40,78 +40,7 @@
     }
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/danhsachsp.css">
-</head>
-<body>
-    <header>
-        <div class="menu">
-            <ul>
-                <li style="margin: 0; width: 10%;"><div class="beephone"><img width="70px" height="70px" src="images/beephone.png" alt="logo" >
-                <a  href="trangchu.php">Bee<span>Phone</span></a></div></li>
-                <li><div class="tab"><a href="trangchu.php?page_layout=thanhvien">Thành viên</a></div></li>
-                <li><div class="tab" id="dienthoaibtn"><a href="danhsachsp.php?page_layout=dienthoai">Điện thoại</a></div>
-                    <div class="box">
-                    <ul class="sub-menu" id="dienthoaimenu">
-                        <li><div class="tabbox"><a href="">Iphone</a></div></li>
-                        <li><div class="tabbox"><a href="">Samsung</a></div></li>
-                        <li><div class="tabbox"><a href="">Oppo</a></div></li>
-                        <li><div class="tabbox"><a href="">Xiaomi</a></div></li>
-                        <li><div class="tabbox"><a href="">Realme</a></div></li>
-                        <li><div class="tabbox"><a href="">Vivo</a></div></li>
-                        <li><div class="tabbox"><a href="">Nokia</a></div></li>
-                    </ul>
-                    </div>
-                </li>
-                <li><div class="tab" id="laptopbtn"><a href="trangchu.php?page_layout=laptop">Laptop</a></div>
-                    <div class="box">
-                    <ul class="sub-menu" id="laptopmenu">
-                        <li><div class="tabbox"><a href="">Macbook</a></div></li>
-                        <li><div class="tabbox"><a href="">Thinkpad</a></div></li>
-                        <li><div class="tabbox"><a href="">Asus</a></div></li>    
-                        <li><div class="tabbox"><a href="">HP</a></div></li>
-                        <li><div class="tabbox"><a href="">Dell</a></div></li>
-                        <li><div class="tabbox"><a href="">Acer</a></div></li>
-                        <li><div class="tabbox"><a href="">Lenovo</a></div></li>
-                    </ul>
-                    </div>
-                </li>
-                <li><div class="tab" id="maytinhbangbtn"><a href="trangchu.php?page_layout=maytinhbang">Máy tính bảng</a></div>
-                    <div class="box">
-                    <ul class="sub-menu" id="maytinhbangmenu">
-                        <li><div class="tabbox"><a href="">Ipad</a></div></li>
-                        <li><div class="tabbox"><a href="">Samsung</a></div></li>
-                        <li><div class="tabbox"><a href="">Xiaomi</a></div></li>
-                        <li><div class="tabbox"><a href="">Lenovo</a></div></li>
-                        <li><div class="tabbox"><a href="">Oppo</a></div></li>
-                    </ul>
-                    </div>
-                </li>
-                <li><div class="tab" id="phukienbtn"><a href="trangchu.php?page_layout=phukien">Phụ kiện</a></div>
-                    <div class="box">
-                    <ul class="sub-menu" id="phukienmenu">
-                        <li><div class="tabbox"><a href="">Tai nghe</a></div></li>
-                        <li><div class="tabbox"><a href="">Loa</a></div></li>
-                        <li><div class="tabbox"><a href="">Cáp, sạc</a></div></li>
-                        <li><div class="tabbox"><a href="">Pin dự phòng</a></div></li>
-                        <li><div class="tabbox"><a href="">Các phụ kiện khác</a></div></li>
-                    </ul>
-                    </div>
-                </li>
-                <li style="width: 220px;"><div><input placeholder="Tìm kiếm" type="text" class="timkiem"></div></li>
-                <li><div class="tab"><a href="">Giỏ hàng</a></div></li>
-                <li><div class="tab"><a href="">Đăng nhập</a></div></li>
-            </ul>
-        </div>
-    </header>
-    <div class="body">
-        <a href="themsp.php">thêm sản phẩm</a>
+<a href="trangchu.php?page_layout=themsp">thêm sản phẩm</a>
         <form method="POST">
         <input type="submit" value="Xuất Excel" name="btnXuatExcel">
         </form>

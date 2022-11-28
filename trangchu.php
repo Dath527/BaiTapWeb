@@ -1,4 +1,5 @@
 <?php
+    ob_start();
     // Nhận biến Page(Số thứ tự của Trang)
     if(isset($_GET['page'])){
         $page = $_GET['page'];
@@ -47,6 +48,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+<?php
+    if (!empty($_GET)) {
+        switch($_GET['page_layout']){
+            
+            case 'thanhvien' : echo '<link rel="stylesheet" type="text/css" href="css/danhsachtv.css" />';
+            break;
+            case 'dienthoai': echo '<link rel="stylesheet" type="text/css" href="css/danhsachsp.css" />';
+            break;
+
+            case 'themsp': echo '<link rel="stylesheet" type="text/css" href="css/themsp.css" />';
+            break;
+            
+            case 'suasp': echo '<link rel="stylesheet" type="text/css" href="css/suasp.css" />';
+            break;
+        }
+    }  
+?>
 </head>
 <body>
     <header>
@@ -55,7 +73,7 @@
                 <li style="margin: 0; width: 10%;"><div class="beephone"><img width="70px" height="70px" src="images/beephone.png" alt="logo" >
                 <a  href="trangchu.php">Bee<span>Phone</span></a></div></li>
                 <li><div class="tab"><a href="trangchu.php?page_layout=thanhvien">Thành viên</a></div></li>
-                <li><div class="tab" id="dienthoaibtn"><a href="danhsachsp.php?page_layout=dienthoai">Điện thoại</a></div>
+                <li><div class="tab" id="dienthoaibtn"><a href="trangchu.php?page_layout=dienthoai">Điện thoại</a></div>
                     <div class="box">
                     <ul class="sub-menu" id="dienthoaimenu">
                         <li><div class="tabbox"><a href="">Iphone</a></div></li>
@@ -105,30 +123,24 @@
                 </li>
                 <li style="width: 220px;"><div><form><input placeholder="Tìm kiếm" type="search" class="timkiem" name="timkiem" onsubmit=""></form></div></li>
                 <li><div class="tab"><a href="">Giỏ hàng</a></div></li>
-                <li><div class="tab"><a href="">Đăng nhập</a></div></li>
+                <li><div class="tab"><a href="index.php">Đăng nhập</a></div></li>
             </ul>
         </div>
     </header>
     <div class="body">
-        <div class="container">
-            <div class="row">   
-                <?php while($row = mysqli_fetch_array($query)){?>
-                    <div class="sanpham">
-                    <div class="anhsanpham">
-                    <img src="images/<?php echo $row['anh_sp'];?>" alt="điện thoại" class="anh">
-                    </div>
-                    <div class="tensanpham">
-                        <?php echo $row['ten_sp'];?>
-                    </div>
-                    <div class="giatien">
-                        <?php echo $row['gia_sp'];?>
-                    </div>
-                </div>
-                <?php }?>
-                
-            </div>
-            <p id="pagination"><?php echo $listPage; ?></p>
-        </div>
+        <?php
+            if (!empty($_GET['page_layout'])) {
+                switch($_GET['page_layout']){
+                    case 'thanhvien' : include_once('danhsachtv.php');break;
+                    case 'dienthoai': include_once('danhsachsp.php');break;
+                    case 'themsp': include_once('themsp.php');break;
+                    case 'suasp': include_once('suasp.php');break;
+                    default: include_once('sanpham.php');
+                }
+            } else {
+                include_once('sanpham.php');
+            }
+        ?>
     </div>
     <footer>
         <div class="footer">

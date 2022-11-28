@@ -11,11 +11,6 @@ html{
 textarea{
     border-radius: 5px;
 }
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
 input[type="number"] {
     -moz-appearance: textfield;
 }
@@ -126,6 +121,7 @@ input[type="number"] {
 }
 .container{
     border: 1px black;
+    text-align:center;
 }
 .container>table{
     margin: auto;
@@ -133,10 +129,8 @@ input[type="number"] {
 }
 .form{
     margin: 10px;
+    text-align:left;
     padding-left: 35%;
-}
-.container>h1{
-    text-align: center;
 }
 .title{
     padding: 5px;
