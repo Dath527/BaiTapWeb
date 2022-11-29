@@ -41,7 +41,9 @@ if(isset($_POST['btnXuatExcel'])){
         header('Content-Length: '.filesize($fileName));
         header('Content-Transfer-Encoding:binary');
         header('Cache-Control: must-revalidate');
-        header('Pragma: no-cache');
+        header('Pragma: public');
+        ob_clean();
+        flush();
         readfile($fileName);
         return;
     }
