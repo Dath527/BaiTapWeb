@@ -1,5 +1,6 @@
 <?php
     ob_start();
+    require('ketnoi.php');
     // Nhận biến Page(Số thứ tự của Trang)
     if(isset($_GET['page'])){
         $page = $_GET['page'];
@@ -15,7 +16,6 @@
     $firstRow = $page*$rowsPerPage - $rowsPerPage;
 
     // Liệt kê Danh sách dữ liệu trên mỗi trang
-    include_once('ketnoi.php');
     $sql = "SELECT * FROM sanpham
             INNER JOIN dmdienthoai
             ON sanpham.id_dienthoai = dmdienthoai.id_dienthoai Where ten_sp like '%$timkiem%'

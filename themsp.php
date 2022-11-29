@@ -65,7 +65,7 @@
        $sql = "INSERT INTO sanpham(ten_sp, gia_sp, anh_sp, id_dienthoai, so_luong, comment)
                VALUES('$ten_sp', '$gia_sp', '$anh_sp', '$id_dienthoai','$so_luong' , '$comment')";
        $query = mysqli_query($dbConnect, $sql);
-       header('location:danhsachsp.php?page_layout=dienthoai');
+       header('location:trangchu.php?page_layout=dienthoai');
 
     }
 ?>

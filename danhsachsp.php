@@ -15,7 +15,6 @@
     $firstRow = $page*$rowsPerPage - $rowsPerPage;
 
     // Liệt kê Danh sách dữ liệu trên mỗi trang
-    require('ketnoi.php');
     $sql = "SELECT * FROM sanpham
             INNER JOIN dmdienthoai
             ON sanpham.id_dienthoai = dmdienthoai.id_dienthoai
@@ -41,8 +40,11 @@
 
 ?>
 <a href="trangchu.php?page_layout=themsp">thêm sản phẩm</a>
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
         <input type="submit" value="Xuất Excel" name="btnXuatExcel">
+        <input type="file" name="fileExcel" id="fileExcel">
+        <?php if(isset($error_fileExcel)){echo$error_fileExcel;}?>
+        <input type="submit" value="Nhập Excel" name="btnNhapExcel">
         </form>
         <div class="container">
             <table>
@@ -62,7 +64,7 @@
                         <td class="gia"><span class="price"><?php echo $row['gia_sp'];?></span></td>
                         <td class="nhacungcap"><?php echo $row['ten_dienthoai'];?></td>
                         <td><span class="thumb"><img class="anhdanhsach" alt="sanpham" width="60" src="images/<?php echo $row['anh_sp'];?>" /></span></td>
-                        <td><a href="suasp.php?page_layout=suasp&id_sp=<?php echo $row["id_sp"] ?>"><span>Sửa</span></a>
+                        <td><a href="trangchu.php?page_layout=suasp&id_sp=<?php echo $row["id_sp"] ?>"><span>Sửa</span></a>
                         </td>
                         <td><a onclick="return xoaSanpham();" href="xoasp.php?id_sp=<?php echo $row['id_sp'];?>"><span>Xóa</span></a></td>
                         </tr>

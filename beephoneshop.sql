@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 21, 2022 lúc 10:20 AM
+-- Thời gian đã tạo: Th10 28, 2022 lúc 01:50 PM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.12
 
@@ -87,7 +87,16 @@ CREATE TABLE `sanpham` (
 --
 
 INSERT INTO `sanpham` (`id_sp`, `ten_sp`, `gia_sp`, `id_dienthoai`, `anh_sp`, `so_luong`, `comment`) VALUES
-(1, '7 plus', 5000000, 1, '', 123, 'ko co gi');
+(31, 'iphone 9231', 2147483647, 3, 'HTC-Windows-Phone-8S.jpg', 123, '\"\"thuận\"\"'),
+(36, 'samsung S* ultra', 2147483647, 2, 'iPhone-4-16G-Quoc-Te-Trang.jpg', 123, 'thuận'),
+(37, 'iphone 9255', 90000000, 2, 'IPhone-3GS-32G-Mau-Den.jpg', 123123132, 'thuận'),
+(38, 'Iphone X', 7000000, 1, 'Screenshot 2022-11-22 102457.png', 10, '\"jdsvd\"'),
+(39, 'samsung galaxy', 40000000, 2, 'samsung-galaxy-note-2-den.jpg', 9, 'cũ'),
+(40, 'Iphone 14', 28000000, 1, 'Screenshot 2022-11-22 100019.png', 5, 'mới'),
+(41, 'Iphone 14 pro', 30000000, 1, 'Screenshot 2022-11-22 100441.png', 5, 'mới'),
+(42, 'iphone 13', 25000000, 1, 'Screenshot 2022-11-22 100707.png', 6, 'mới'),
+(43, 'Iphone 13 pro max', 30000000, 1, 'Screenshot 2022-11-22 101041.png', 8, 'mới'),
+(44, 'Samsung Glaxy A13', 12000000, 2, 'Screenshot 2022-11-22 101810.png', 7, 'mới');
 
 -- --------------------------------------------------------
 
@@ -163,7 +172,7 @@ ALTER TABLE `dmsanpham`
 -- AUTO_INCREMENT cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `id_sp` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_sp` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

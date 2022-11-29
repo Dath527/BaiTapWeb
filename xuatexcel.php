@@ -1,5 +1,4 @@
 <?php
-include_once('ketnoi.php');
 require('Classes/PHPExcel.php');
 if(isset($_POST['btnXuatExcel'])){
         $objExcel = new PHPExcel();
@@ -26,8 +25,8 @@ if(isset($_POST['btnXuatExcel'])){
             $rowCount++;
             $sheet->setCellValue('A'.$rowCount,$row['id_sp']);
             $sheet->setCellValue('B'.$rowCount,$row['ten_sp']);
-            $sheet->setCellValue('D'.$rowCount,$row['gia_sp']);
-            $sheet->setCellValue('C'.$rowCount,$row['id_dienthoai']);
+            $sheet->setCellValue('C'.$rowCount,$row['gia_sp']);
+            $sheet->setCellValue('D'.$rowCount,$row['id_dienthoai']);
             $sheet->setCellValue('E'.$rowCount,$row['anh_sp']);
             $sheet->setCellValue('F'.$rowCount,$row['so_luong']);
             $sheet->setCellValue('G'.$rowCount,$row['comment']);
@@ -47,4 +46,33 @@ if(isset($_POST['btnXuatExcel'])){
         readfile($fileName);
         return;
     }
+if(isset($_POST['btnNhapExcel'])){
+    if($_FILES['fileExcel']['tmp_name'] == ''){
+        $error_fileExcel = '<span style="color:red;">(*)</span>';
+    }
+    else{
+        $file = $_FILES['fileExcel']['tmp_name'];
+
+        $objReader = PHPExcel_IOFactory::createReaderForFile($file);
+        $objReader->SetLoadSheetsOnly('DSSP');
+
+        $objExcel = $objReader->load($file);
+        $sheetData = $objExcel->getActiveSheet()->toArray(true,true,true,true,true,true,null);
+
+        $highestRow = $objExcel->setActiveSheetIndex()->getHighestRow();
+        for($row = 2; $row <=$highestRow; $row++){
+            $id_sp = $sheetData[$row]['A'];
+            $ten_sp = $sheetData[$row]['B'];
+            $gia_sp = $sheetData[$row]['C'];
+            $id_dienthoai = $sheetData[$row]['D'];
+            $anh_sp = $sheetData[$row]['E'];
+            $so_luong = $sheetData[$row]['F'];
+            $comment = $sheetData[$row]['G'];
+
+            $import = "INSERT INTO sanpham(id_sp, ten_sp, gia_sp, id_dienthoai, anh_sp, so_luong, comment) 
+                                VALUES ($id_sp,'$ten_sp',$gia_sp,$id_dienthoai,'$anh_sp',$so_luong,'$comment')";
+            $nhapexcel = mysqli_query($dbConnect, $import);
+        }
+    }
+}
 ?>
