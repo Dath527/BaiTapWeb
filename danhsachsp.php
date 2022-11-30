@@ -39,7 +39,7 @@
     }
 
 ?>
-<a href="trangchu.php?page_layout=themsp">thêm sản phẩm</a>
+<a href="admin.php?page_layout=themsp">thêm sản phẩm</a>
         <form method="POST" enctype="multipart/form-data">
         <input type="submit" value="Xuất Excel" name="btnXuatExcel">
         <input type="file" name="fileExcel" id="fileExcel">
@@ -64,7 +64,7 @@
                         <td class="gia"><span class="price"><?php echo $row['gia_sp'];?></span></td>
                         <td class="nhacungcap"><?php echo $row['ten_dienthoai'];?></td>
                         <td><span class="thumb"><img class="anhdanhsach" alt="sanpham" width="60" src="images/<?php echo $row['anh_sp'];?>" /></span></td>
-                        <td><a href="trangchu.php?page_layout=suasp&id_sp=<?php echo $row["id_sp"] ?>"><span>Sửa</span></a>
+                        <td><a href="admin.php?page_layout=suasp&id_sp=<?php echo $row["id_sp"] ?>"><span>Sửa</span></a>
                         </td>
                         <td><a onclick="return xoaSanpham();" href="xoasp.php?id_sp=<?php echo $row['id_sp'];?>"><span>Xóa</span></a></td>
                         </tr>

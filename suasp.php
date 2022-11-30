@@ -65,7 +65,7 @@
 
        $sql = "UPDATE sanpham SET id_dienthoai = $id_dienthoai, ten_sp = '$ten_sp', anh_sp = '$anh_sp', gia_sp = '$gia_sp',comment = '$comment', so_luong = '$so_luong' WHERE id_sp = $id_sp";
        $query = mysqli_query($dbConnect, $sql);
-       header('location:danhsachsp.php?page_layout=dienthoai');
+       header('location:admin.php?page_layout=dienthoai');
 
     }
 ?>
