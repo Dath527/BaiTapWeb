@@ -34,7 +34,7 @@
             $listPage .= '<span>'.$i.'</span> ';
         }
         else{
-            $listPage .= '<a href="'.$_SERVER['PHP_SELF'].'?page_layout=danhsachsp&page='.$i.'">'.$i.'</a> ';
+            $listPage .= '<a href="'.$_SERVER['PHP_SELF'].'?page_layout=dienthoai&page='.$i.'">'.$i.'</a> ';
         }
     }
 

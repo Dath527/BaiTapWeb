@@ -35,7 +35,7 @@
             $listPage .= '<span>'.$i.'</span> ';
         }
         else{
-            $listPage .= '<a href="'.$_SERVER['PHP_SELF'].'?page_layout=danhsachsp&page='.$i.'">'.$i.'</a> ';
+            $listPage .= '<a href="'.$_SERVER['PHP_SELF'].'?&page='.$i.'">'.$i.'</a> ';
         }
     }
 
@@ -72,7 +72,7 @@
             <ul>
                 <li style="margin: 0; width: 10%;"><div class="beephone"><img width="70px" height="70px" src="images/beephone.png" alt="logo" >
                 <a  href="trangchu.php">Bee<span>Phone</span></a></div></li>
-                <li><div class="tab"><a href="trangchu.php?page_layout=thanhvien">Thành viên</a></div></li>
+                <!-- <li><div class="tab"><a href="trangchu.php?page_layout=thanhvien">Thành viên</a></div></li> -->
                 <li><div class="tab" id="dienthoaibtn"><a href="trangchu.php?page_layout=dienthoai">Điện thoại</a></div>
                     <div class="box">
                     <ul class="sub-menu" id="dienthoaimenu">

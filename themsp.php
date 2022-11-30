@@ -52,11 +52,6 @@
     }
         // $dac_biet = $_POST['dac_biet'];
     }
-?>
-
-
-<?php
-    include_once('ketnoi.php');
     
     if(isset($ten_sp) && isset($gia_sp)  && isset($anh_sp) && isset($id_dienthoai) 
         && isset($comment) && isset($so_luong) && $so_luong>0 && $gia_sp>0){
@@ -68,6 +63,8 @@
        header('location:trangchu.php?page_layout=dienthoai');
 
     }
+        $sql2 = "SELECT * FROM dmdienthoai";
+        $query2 = mysqli_query($dbConnect, $sql2);
 ?>
         <div class="container">
             <form method="post" enctype="multipart/form-data">
@@ -85,13 +82,16 @@
                         <label>Nhà cung cấp</label><br>
                         <select name="id_dienthoai">
                             <option value="unselect" selected="selected">Lựa chọn nhà cung cấp</option>
-                            <option value=1>Iphone</option>
+                            <?php while($row = mysqli_fetch_array($query2)){
+                                echo '<option value="',$row['id_dienthoai'],'">'; echo $row['ten_dienthoai'],'</option>';
+                            }?>
+                            <!-- <option value=1>Iphone</option>
                             <option value=2>SamSung</option>
                             <option value=3>Xiaomi</option>
                             <option value=4>OPPO</option>
                             <option value=5>Realme</option>
                             <option value=6>Nokia</option>
-                            <option value=7>ViVo</option>
+                            <option value=7>ViVo</option> -->
                         </select>
                         <?php if(isset($error_id_dienthoai)){echo $error_id_dienthoai;}?>
                     <br>
