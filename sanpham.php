@@ -1,3 +1,38 @@
+<?php 
+  
+    if(isset($_GET['action']) && $_GET['action']=="add"){ 
+          
+        $id=intval($_GET['id']); 
+          
+        if(isset($_SESSION['cart'][$id])){ 
+              
+            $_SESSION['cart'][$id]['quantity']++; 
+              
+        }else{ 
+              
+            $sql_s="SELECT * FROM sanpham
+                WHERE id_sampham={$id}"; 
+            $query_s=mysql_query($sql_s); 
+            if(mysql_num_rows($query_s)!=0){ 
+                $row_s=mysql_fetch_array($query_s); 
+                  
+                $_SESSION['cart'][$row_s['id_sanpham']]=array( 
+                        "quantity" => 1, 
+                        "price" => $row_s['gia_sp'] 
+                    ); 
+                  
+                  
+            }else{ 
+                  
+                $message="Sản phẩm này không tồn tại!"; 
+                  
+            } 
+              
+        } 
+          
+    } 
+  
+?>
 <div class="container">
             <div class="row">   
                 <?php while($row = mysqli_fetch_array($query)){?>

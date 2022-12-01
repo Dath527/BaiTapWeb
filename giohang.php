@@ -13,7 +13,7 @@
           
         <?php 
           
-            $sql="SELECT * FROM sanpham WHERE id_sanpham IN ("; 
+            $sql="SELECT * FROM sanpham WHERE id_sp IN ("; 
                       
                     foreach($_SESSION['cart'] as $id => $value) { 
                         $sql.=$id.","; 

@@ -64,6 +64,8 @@
             break;
 
             case 'showsp': echo '<link rel="stylesheet" type="text/css" href="css/showsp.css" />';
+
+            case 'giohang': echo '<link rel="stylesheet" type="text/css" href="css/giohang.css" />';
             break;
         }
     }  
@@ -140,6 +142,7 @@
                     case 'suasp': include_once('suasp.php');break;
                     case 'showsp': include_once('showsp.php');break;
                     case 'giohang': include_once('giohang.php');break;
+                    case 'test': include_once('test.php');break;
                     default: include_once('sanpham.php');
                 }
             } else {
