@@ -62,6 +62,9 @@
             
             case 'suasp': echo '<link rel="stylesheet" type="text/css" href="css/suasp.css" />';
             break;
+
+            case 'showsp': echo '<link rel="stylesheet" type="text/css" href="css/showsp.css" />';
+            break;
         }
     }  
 ?>
@@ -73,7 +76,7 @@
                 <li style="margin: 0; width: 10%;"><div class="beephone"><img width="70px" height="70px" src="images/beephone.png" alt="logo" >
                 <a  href="trangchu.php">Bee<span>Phone</span></a></div></li>
                 <!-- <li><div class="tab"><a href="trangchu.php?page_layout=thanhvien">Thành viên</a></div></li> -->
-                <li><div class="tab" id="dienthoaibtn"><p>Danh mục</p></div>
+                <li><div class="tab" id="dienthoaibtn"><a>Danh mục</a></div>
                     <div class="box">
                     <ul class="sub-menu" id="dienthoaimenu">
                         <li><div class="tabbox"><a href="">Iphone</a></div></li>
@@ -86,7 +89,7 @@
                     </ul>
                     </div>
                 </li>
-                <li><div class="tab" id="laptopbtn"><a href="trangchu.php?page_layout=laptop">Samsung</a></div>
+                <li><div class="tab" id="laptopbtn"><a href="trangchu.php?timkiem=Samsung">Samsung</a></div>
                     <div class="box">
                     <ul class="sub-menu" id="laptopmenu">
                         <li><div class="tabbox"><a href="">Macbook</a></div></li>
@@ -122,7 +125,7 @@
                     </div>
                 </li>
                 <li style="width: 220px;"><div><form><input placeholder="Tìm kiếm" type="search" class="timkiem" name="timkiem" onsubmit=""></form></div></li>
-                <li><div class="tab"><a href="">Giỏ hàng</a></div></li>
+                <li><div class="tab"><a href="trangchu.php?page_layout=giohang">Giỏ hàng</a></div></li>
                 <li><div class="tab"><a href="index.php">Đăng nhập</a></div></li>
             </ul>
         </div>
@@ -135,6 +138,8 @@
                     case 'dienthoai': include_once('danhsachsp.php');break;
                     case 'themsp': include_once('themsp.php');break;
                     case 'suasp': include_once('suasp.php');break;
+                    case 'showsp': include_once('showsp.php');break;
+                    case 'giohang': include_once('giohang.php');break;
                     default: include_once('sanpham.php');
                 }
             } else {
