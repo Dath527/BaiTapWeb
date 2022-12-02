@@ -26,6 +26,11 @@
           
         echo "<p>Your Cart is empty. Please add some products.</p>"; 
           
+        echo $_SESSION['tk'];
+        echo '<br>';
+        echo $_SESSION['mk'];
+        echo '<br>';
+        echo $_SESSION['auth'];
     } 
   
 ?>

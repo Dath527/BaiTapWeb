@@ -1,15 +1,12 @@
 <?php
-    ob_start();
-    session_start();
     // $_SESSION['loginTimes'] = 0;
+
     if (isset($_SESSION['auth'])) {
         header('location:trangchu.php');
     }
     if(isset($_SESSION['tk']) && isset($_SESSION['mk'])){
         header('location:trangchu.php');
-        $_SESSION['auth'] = '123';
     };
-    include_once('ketnoi.php');
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -44,6 +41,7 @@
                     mat_khau = '$mk'";
                     $query = mysqli_query($dbConnect, $sql);
                     $totalRows = mysqli_num_rows($query);
+                    $row = mysqli_fetch_array($query);
                     // Không có kết quả thì báo lỗi ngược lại Tạo phiên Đăng nhập cho Tài khoản
                     // $_SESSION['loginTimes'] = 0;
                 if($totalRows <= 0){
@@ -61,8 +59,12 @@
                 } else{
                     $_SESSION['tk'] = $tk;
                     $_SESSION['mk'] = $mk;
+                    $_SESSION['auth'] = $row['quyen_truy_cap'];
                     $_SESSION['loginTimes'] = 0;
-                    header('location:trangchu.php');
+                    if($_SESSION['auth']==1){
+                        header('location:admin.php');
+                    }
+                    else header('location:trangchu.php');
                 }
             }
         }

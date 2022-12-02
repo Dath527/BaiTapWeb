@@ -1,5 +1,6 @@
 <?php
     ob_start();
+    session_start();
     require('ketnoi.php');
     // Nhận biến Page(Số thứ tự của Trang)
     if(isset($_GET['page'])){
@@ -128,7 +129,16 @@
                 </li>
                 <li style="width: 220px;"><div><form><input placeholder="Tìm kiếm" type="search" class="timkiem" name="timkiem" onsubmit=""></form></div></li>
                 <li><div class="tab"><a href="trangchu.php?page_layout=giohang">Giỏ hàng</a></div></li>
-                <li><div class="tab"><a href="index.php">Đăng nhập</a></div></li>
+
+                <?php
+                  if(isset($_SESSION['tk'])){
+                      echo '<li><div class="tab"><a href="trangchu.php?page_layout=dangxuat">Đăng xuất</a></div></li>';
+                    }
+                  else{
+                    echo '<li><div class="tab"><a href="trangchu.php?page_layout=dangnhap">Đăng nhập</a></div></li>';
+                  }
+                ?>
+
             </ul>
         </div>
     </header>
@@ -142,6 +152,8 @@
                     case 'suasp': include_once('suasp.php');break;
                     case 'showsp': include_once('showsp.php');break;
                     case 'giohang': include_once('giohang.php');break;
+                    case 'dangnhap': include_once('dangnhap.php');break;
+                    case 'dangxuat': include_once('dangxuat.php');break;
                     case 'test': include_once('test.php');break;
                     default: include_once('sanpham.php');
                 }
