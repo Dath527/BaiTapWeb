@@ -1,14 +1,13 @@
-<h1>View cart</h1> 
-<a href="index.php?page=products">Go back to products page</a> 
 <form method="post"> 
       
     <table> 
           
         <tr> 
             <th>Name</th> 
-            <th>Quantity</th> 
+            <th>so_luong</th> 
             <th>Price</th> 
-            <th>Items Price</th> 
+            <th>Items Price</th>
+            <th> Xoa </th>
         </tr> 
           
         <?php 
@@ -20,20 +19,19 @@
                     } 
                       
                     $sql=substr($sql, 0, -1).") ORDER BY ten_sp ASC";
+                    echo $sql;
                     $query=mysqli_query($dbConnect,$sql); 
                     $totalprice=0; 
                     while($row=mysqli_fetch_array($query)){ 
-                        $subtotal=$_SESSION['cart'][$row['id_sp']]['quantity']*$row['gia_sp']; 
+                        $subtotal=$_SESSION['cart'][$row['id_sp']]['so_luong']*$row['gia_sp']; 
                         $totalprice+=$subtotal; 
                     ?> 
                         <tr> 
                             <td><?php echo $row['ten_sp'] ?></td> 
-                            <td><input type="number" name="quantity[<?php echo $row['id_sp'] ?>]" size="5" value="<?php echo $_SESSION['cart'][$row['id_sp']]['quantity'] ?>" /></td> 
+                            <td><input type="number" name="so_luong[<?php echo $row['id_sp'] ?>]" size="5" value="<?php echo $_SESSION['cart'][$row['id_sp']]['so_luong'] ?>" /></td> 
                             <td><?php echo $row['gia_sp'] ?>VNĐ</td> 
-                            <td><?php echo $_SESSION['cart'][$row['id_sp']]['quantity']*$row['gia_sp'] ?>VNĐ</td>
-                            <?php echo 'unset($_SESSION['cart'][$row['id_sp']])'; ?>
-                            <td><div onclick="<?php echo 'unset($_SESSION['cart'][$row['id_sp']])'; ?> ">
-                            <i class="fa-solid fa-x" style="color:red;"></i></div></td>
+                            <td><?php echo $_SESSION['cart'][$row['id_sp']]['so_luong']*$row['gia_sp'] ?>VNĐ</td>
+                            <td><a href="trangchu.php?page_layout=xoagiohang&id_sp=<?php echo $row['id_sp']; ?>" > X </a></td>
                         </tr> 
                     <?php 
                           
@@ -48,4 +46,4 @@
     <button type="submit" name="submit">Update Cart</button> 
 </form> 
 <br /> 
-<p>To remove an item, set it's quantity to 0. </p>
+<p>To remove an item, set it's so_luong to 0. </p>

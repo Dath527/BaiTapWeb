@@ -25,7 +25,7 @@
         
       if(isset($_SESSION['cart'][$id])){ 
             
-          $_SESSION['cart'][$id]['quantity']++; 
+          $_SESSION['cart'][$id]['so_luong']++; 
             
       }else{ 
             
@@ -36,7 +36,7 @@
               $row_s=mysqli_fetch_array($query_s); 
                 
               $_SESSION['cart'][$row_s['id_sp']]=array( 
-                      "quantity" => 1, 
+                      "so_luong" => 1, 
                       "price" => $row_s['gia_sp'] 
                   ); 
                 
@@ -98,7 +98,7 @@
         while($row=mysqli_fetch_array($query)){ 
               
 ?> 
-            <p><?php echo $row['ten_sp'] ?> x <?php echo $_SESSION['cart'][$row['id_sp']]['quantity'] ?></p> 
+            <p><?php echo $row['ten_sp'] ?> x <?php echo $_SESSION['cart'][$row['id_sp']]['so_luong'] ?></p> 
 <?php 
               
         } 
