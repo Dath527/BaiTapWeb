@@ -1,6 +1,7 @@
 <?php
     ob_start();
     session_start();
+    $_SESSION['cart']['0']=0;
     require('ketnoi.php');
     // Nhận biến Page(Số thứ tự của Trang)
     if(isset($_GET['page'])){
@@ -156,6 +157,9 @@
                     case 'giohang': include_once('giohang.php');break;
                     case 'dangnhap': include_once('dangnhap.php');break;
                     case 'dangxuat': include_once('dangxuat.php');break;
+                    case 'xoasp': include_once('xoasp.php');break;
+                    case 'xoagiohang': include_once('xoagiohang.php');break;
+                    case 'thanhtoan': include_once('thanhtoan.php');break;
                     case 'test': include_once('test.php');break;
                     default: include_once('sanpham.php');
                 }

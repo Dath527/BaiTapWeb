@@ -1,3 +1,18 @@
+<?php 
+  
+    if(isset($_POST['capnhat'])){ 
+          
+        foreach($_POST['so_luong'] as $key => $val) { 
+            if($val==0) { 
+                unset($_SESSION['cart'][$key]); 
+            }else{ 
+                $_SESSION['cart'][$key]['so_luong']=$val; 
+            } 
+        } 
+          
+    } 
+  
+?>
 <form method="post"> 
       
     <table> 
@@ -43,7 +58,8 @@
           
     </table> 
     <br /> 
-    <button type="submit" name="submit">Update Cart</button> 
+    <button type="submit" name="capnhat">Cập nhật giỏ hàng</button>
+    <button type="submit" name="thanhtoan">Thanh toán</button>
 </form> 
 <br /> 
 <p>To remove an item, set it's so_luong to 0. </p>

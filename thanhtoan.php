@@ -1,6 +1,6 @@
 <?php 
             $chitiet="";
-			$_SESSION['tk']=>$value;
+			$tk=$_SESSION['tk'];
 			echo $value;
             $sql="SELECT * FROM sanpham WHERE id_sp IN ("; 
                       
@@ -32,7 +32,7 @@
                     echo $chitiet;
                     if(isset($_SESSION['tk'])){
                         $sql2=" INSERT INTO hoadon(tk, chi_tiet_hd, gia_tien)
-                        VALUES( '$_SESSION['tk]=>$value' , '$chitiet' , '$totalprice') ";
+                        VALUES( '$tk' , '$chitiet' , '$totalprice') ";
 						echo $sql2;
                     }else{
                         $sql2="INSERT INTO hoadon(chi_tiet_hd,gia_tien)
