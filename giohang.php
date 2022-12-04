@@ -19,18 +19,21 @@
                         $sql.=$id.","; 
                     } 
                       
-                    $sql=substr($sql, 0, -1).") ORDER BY name ASC"; 
-                    $query=mysql_query($sql); 
+                    $sql=substr($sql, 0, -1).") ORDER BY ten_sp ASC";
+                    $query=mysqli_query($dbConnect,$sql); 
                     $totalprice=0; 
-                    while($row=mysql_fetch_array($query)){ 
-                        $subtotal=$_SESSION['cart'][$row['id_product']]['quantity']*$row['price']; 
+                    while($row=mysqli_fetch_array($query)){ 
+                        $subtotal=$_SESSION['cart'][$row['id_sp']]['quantity']*$row['gia_sp']; 
                         $totalprice+=$subtotal; 
                     ?> 
                         <tr> 
-                            <td><?php echo $row['name'] ?></td> 
-                            <td><input type="text" name="quantity[<?php echo $row['id_product'] ?>]" size="5" value="<?php echo $_SESSION['cart'][$row['id_product']]['quantity'] ?>" /></td> 
-                            <td><?php echo $row['price'] ?>$</td> 
-                            <td><?php echo $_SESSION['cart'][$row['id_product']]['quantity']*$row['price'] ?>$</td> 
+                            <td><?php echo $row['ten_sp'] ?></td> 
+                            <td><input type="number" name="quantity[<?php echo $row['id_sp'] ?>]" size="5" value="<?php echo $_SESSION['cart'][$row['id_sp']]['quantity'] ?>" /></td> 
+                            <td><?php echo $row['gia_sp'] ?>VNĐ</td> 
+                            <td><?php echo $_SESSION['cart'][$row['id_sp']]['quantity']*$row['gia_sp'] ?>VNĐ</td>
+                            <?php echo 'unset($_SESSION['cart'][$row['id_sp']])'; ?>
+                            <td><div onclick="<?php echo 'unset($_SESSION['cart'][$row['id_sp']])'; ?> ">
+                            <i class="fa-solid fa-x" style="color:red;"></i></div></td>
                         </tr> 
                     <?php 
                           

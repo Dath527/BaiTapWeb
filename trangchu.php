@@ -41,6 +41,7 @@
     }
 
 ?>
+<script src="https://kit.fontawesome.com/95051aed7b.js" crossorigin="anonymous"></script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,7 +52,7 @@
     <link rel="stylesheet" href="css/style.css">
 <?php
     if (!empty($_GET)) {
-        switch($_GET['page_layout']){
+        switch($_GET['page_layout']){//CSS cho từng trang
             
             case 'thanhvien' : echo '<link rel="stylesheet" type="text/css" href="css/danhsachtv.css" />';
             break;
@@ -67,6 +68,7 @@
             case 'showsp': echo '<link rel="stylesheet" type="text/css" href="css/showsp.css" />';
 
             case 'giohang': echo '<link rel="stylesheet" type="text/css" href="css/giohang.css" />';
+
             break;
         }
     }  

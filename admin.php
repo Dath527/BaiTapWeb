@@ -43,6 +43,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="https://kit.fontawesome.com/95051aed7b.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -110,7 +111,7 @@
                     </ul>
                     </div>
                 </li>
-                <li><div class="tab" id="phukienbtn"><a href="admin.php?page_layout=phukien">Phụ kiện</a></div>
+                <!-- <li><div class="tab" id="phukienbtn"><a href="admin.php?page_layout=phukien">Phụ kiện</a></div>
                     <div class="box">
                     <ul class="sub-menu" id="phukienmenu">
                         <li><div class="tabbox"><a href="">Tai nghe</a></div></li>
@@ -120,10 +121,17 @@
                         <li><div class="tabbox"><a href="">Các phụ kiện khác</a></div></li>
                     </ul>
                     </div>
-                </li>
+                </li> -->
                 <li style="width: 220px;"><div><form><input placeholder="Tìm kiếm" type="search" class="timkiem" name="timkiem" onsubmit=""></form></div></li>
                 <li><div class="tab"><a href="">Giỏ hàng</a></div></li>
-                <li><div class="tab"><a href="index.php">Đăng nhập</a></div></li>
+                <?php
+                  if(isset($_SESSION['tk'])){
+                      echo '<li><div class="tab"><a href="trangchu.php?page_layout=dangxuat">Đăng xuất</a></div></li>';
+                    }
+                  else{
+                    echo '<li><div class="tab"><a href="trangchu.php?page_layout=dangnhap">Đăng nhập</a></div></li>';
+                  }
+                ?>
             </ul>
         </div>
     </header>
@@ -131,11 +139,16 @@
         <?php
             if (!empty($_GET['page_layout'])) {
                 switch($_GET['page_layout']){
-                    case 'thanhvien' : include_once('danhsachtv.php');break;
-                    case 'dienthoai': include_once('danhsachsp.php');break;
-                    case 'themsp': include_once('themsp.php');break;
-                    case 'suasp': include_once('suasp.php');break;
-                    default: include_once('sanpham.php');
+                  case 'thanhvien' : include_once('danhsachtv.php');break;
+                  case 'dienthoai': include_once('danhsachsp.php');break;
+                  case 'themsp': include_once('themsp.php');break;
+                  case 'suasp': include_once('suasp.php');break;
+                  case 'showsp': include_once('showsp.php');break;
+                  case 'giohang': include_once('giohang.php');break;
+                  case 'dangnhap': include_once('dangnhap.php');break;
+                  case 'dangxuat': include_once('dangxuat.php');break;
+                  case 'test': include_once('test.php');break;
+                  default: include_once('sanpham.php');
                 }
             } else {
                 include_once('sanpham.php');
