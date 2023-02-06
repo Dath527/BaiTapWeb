@@ -55,29 +55,20 @@
         <div class="container">
             <form method="post" enctype="multipart/form-data">
                 <div class="form">
-                        <a>Tên sản phẩm</a>
                     <br>
-                        <input type="text" name="ten_sp" id="tensp" value="<?php if(isset($_POST['ten_sp'])){echo $row['ten_sp'];} else{echo $row['ten_sp'];} ?>">
-                    <br>
-                        <a>Giá sản phẩm</a>
-                    <br>    
-                        <input type="number" name="gia_sp" id="giasp" value="<?php if(isset($_POST['gia_sp'])){echo $row['gia_sp'];} else{echo $row['gia_sp'];}?>">
-                    <br>    
-                        <a>Ảnh sản phẩm</a>
+                    <div class="tensanpham">
+                            <?php echo $row['ten_sp'];?>
+                        </div>
+                    <div class="giatien">
+                        <?php echo $row['gia_sp'];?> VNĐ
+                    </div>
                     <br>
                         <img src="images/<?php echo $row['anh_sp'];?>" class="anh">
-                    <br>
-                        <input type="file" name="anh_sp" id="anhsp">
-                        <?php if(isset($error_anh_sp)){echo $error_anh_sp;}?>
-                    <br>
-                        <a>Comment</a>
                     <br>
                         <textarea cols="60" rows="12" name="comment">"<?php if(isset($_POST['comment'])){echo $row['comment'];} else{echo $row['comment'];}?>"</textarea>
                         <?php if(isset($error_comment)){echo $error_comment;}?>
                     <br>
                         <a href="trangchu.php?page_layout=showsp&action=add&id_sp=<?php echo $row['id_sp'] ?>">Add to cart</a>
-                        <input type="submit" name="submit" value="Cập nhật" />
-                        <input type="reset" name="reset" value="Làm mới" />
 
                 </div>
                 

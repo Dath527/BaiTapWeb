@@ -15,6 +15,26 @@ input::-webkit-inner-spin-button {
 }
                                     /* menu */
                                 /* body */
+.them-nhap-xuat{
+    margin: auto;
+    display: block;
+    width: 1000px;
+}
+.them{
+    text-align:right;
+    padding: auto;
+    margin:auto;
+}
+.xuat{
+    text-align:right;
+    padding: auto;
+    margin:auto;
+}
+.nhap{
+    text-align:right;
+    padding: auto;
+    margin:auto;
+}
 .body{
     padding-top: 150px;
     background-color: #f4f4f4;

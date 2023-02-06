@@ -55,7 +55,7 @@
     if (!empty($_GET)) {
         switch($_GET['page_layout']){//CSS cho từng trang
             
-            case 'thanhvien' : echo '<link rel="stylesheet" type="text/css" href="css/danhsachtv.css" />';
+            case 'thanhvien' : echo '<link rel="stylesheet" type="text/css" href="css/dsthanhvien.css" />';
             break;
             case 'dienthoai': echo '<link rel="stylesheet" type="text/css" href="css/danhsachsp.css" />';
             break;
@@ -69,6 +69,12 @@
             case 'showsp': echo '<link rel="stylesheet" type="text/css" href="css/showsp.css" />';
 
             case 'giohang': echo '<link rel="stylesheet" type="text/css" href="css/giohang.css" />';
+
+            case 'thanhtoan': echo '<link rel="stylesheet" type="text/css" href="css/thanhtoan.css" />';
+
+            case 'dangnhap': echo '<link rel="stylesheet" type="text/css" href="css/dangnhap.css" />';
+
+            case 'dangki': echo '<link rel="stylesheet" type="text/css" href="css/dangnhap.css" />';
 
             break;
         }
@@ -146,27 +152,61 @@
         </div>
     </header>
     <div class="body">
-        <?php
+    <?php
             if (!empty($_GET['page_layout'])) {
                 switch($_GET['page_layout']){
-                    case 'thanhvien' : include_once('danhsachtv.php');break;
-                    case 'dienthoai': include_once('danhsachsp.php');break;
-                    case 'themsp': include_once('themsp.php');break;
-                    case 'suasp': include_once('suasp.php');break;
-                    case 'showsp': include_once('showsp.php');break;
-                    case 'giohang': include_once('giohang.php');break;
-                    case 'dangnhap': include_once('dangnhap.php');break;
-                    case 'dangxuat': include_once('dangxuat.php');break;
-                    case 'xoasp': include_once('xoasp.php');break;
-                    case 'xoagiohang': include_once('xoagiohang.php');break;
-                    case 'thanhtoan': include_once('thanhtoan.php');break;
-                    case 'test': include_once('test.php');break;
-                    default: include_once('sanpham.php');
+                  case 'thanhvien' : include_once('dsthanhvien.php');break;
+                  case 'dienthoai': include_once('danhsachsp.php');break;
+                  case 'themsp': include_once('themsp.php');break;
+                  case 'suasp': include_once('suasp.php');break;
+                  case 'showsp': include_once('showsp.php');break;
+                  case 'giohang': include_once('giohang.php');break;
+                  case 'dangnhap': include_once('dangnhap.php');break;
+                  case 'dangki': include_once('dangki.php');break;
+                  case 'dangxuat': include_once('dangxuat.php');break;
+                  case 'xoasp': include_once('xoasp.php');break;
+                  case 'xoagiohang': include_once('xoagiohang.php');break;
+                  case 'thanhtoan': include_once('thanhtoan.php');break;
+                  case 'test': include_once('test.php');break;
+                  default: include_once('sanpham.php');
                 }
             } else {
                 include_once('sanpham.php');
             }
         ?>
+    </div>
+    <div class="right-nav">
+    <?php 
+  
+  if(isset($_SESSION['cart'])){ 
+        
+      $sql="SELECT * FROM sanpham WHERE id_sp IN ("; 
+        
+      foreach($_SESSION['cart'] as $id => $value) { 
+          $sql.=$id.","; 
+      } 
+        
+      $sql=substr($sql, 0, -1).") ORDER BY ten_sp ASC"; 
+      $query=mysqli_query($dbConnect,$sql); 
+      while($row=mysqli_fetch_array($query)){ 
+            
+?> 
+          <div class="right-item"><?php echo $row['ten_sp'] ?> x <?php echo $_SESSION['cart'][$row['id_sp']]['so_luong'] ?></div> 
+<?php 
+            
+      } 
+?> 
+      <hr /> 
+      <a href="trangchu.php?page_layout=giohang">Vào giỏ hàng</a> 
+<?php 
+        
+  }else{ 
+        
+      echo "<p>Your Cart is empty. Please add some products.</p>"; 
+        
+  } 
+
+?>
     </div>
     <footer>
         <div class="footer">

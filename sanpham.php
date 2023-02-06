@@ -9,7 +9,7 @@
                             <?php echo $row['ten_sp'];?>
                         </div>
                         <div class="giatien">
-                            <?php echo $row['gia_sp'];?>
+                            <?php echo $row['gia_sp'];?> VNĐ
                         </div>
                     </div>
                 <?php }?>

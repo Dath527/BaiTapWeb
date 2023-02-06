@@ -53,8 +53,9 @@
     if (!empty($_GET)) {
         switch($_GET['page_layout']){
             
-            case 'thanhvien' : echo '<link rel="stylesheet" type="text/css" href="css/danhsachtv.css" />';
+            case 'thanhvien' : echo '<link rel="stylesheet" type="text/css" href="css/danhsachsp.css" />';
             break;
+            
             case 'dienthoai': echo '<link rel="stylesheet" type="text/css" href="css/danhsachsp.css" />';
             break;
 
@@ -62,6 +63,7 @@
             break;
             
             case 'suasp': echo '<link rel="stylesheet" type="text/css" href="css/suasp.css" />';
+
             break;
         }
     }  
@@ -87,7 +89,7 @@
                     </ul>
                     </div>
                 </li>
-                <li><div class="tab" id="laptopbtn"><a href="admin.php?page_layout=laptop">Laptop</a></div>
+                <!-- <li><div class="tab" id="laptopbtn"><a href="admin.php?page_layout=laptop">Laptop</a></div>
                     <div class="box">
                     <ul class="sub-menu" id="laptopmenu">
                         <li><div class="tabbox"><a href="">Macbook</a></div></li>
@@ -110,7 +112,7 @@
                         <li><div class="tabbox"><a href="">Oppo</a></div></li>
                     </ul>
                     </div>
-                </li>
+                </li> -->
                 <!-- <li><div class="tab" id="phukienbtn"><a href="admin.php?page_layout=phukien">Phụ kiện</a></div>
                     <div class="box">
                     <ul class="sub-menu" id="phukienmenu">
@@ -139,7 +141,7 @@
         <?php
             if (!empty($_GET['page_layout'])) {
                 switch($_GET['page_layout']){
-                  case 'thanhvien' : include_once('danhsachtv.php');break;
+                  case 'thanhvien' : include_once('dsthanhvien.php');break;
                   case 'dienthoai': include_once('danhsachsp.php');break;
                   case 'themsp': include_once('themsp.php');break;
                   case 'suasp': include_once('suasp.php');break;
@@ -147,6 +149,9 @@
                   case 'giohang': include_once('giohang.php');break;
                   case 'dangnhap': include_once('dangnhap.php');break;
                   case 'dangxuat': include_once('dangxuat.php');break;
+                  case 'xoasp': include_once('xoasp.php');break;
+                  case 'xoagiohang': include_once('xoagiohang.php');break;
+                  case 'thanhtoan': include_once('thanhtoan.php');break;
                   case 'test': include_once('test.php');break;
                   default: include_once('sanpham.php');
                 }

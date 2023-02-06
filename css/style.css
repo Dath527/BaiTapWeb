@@ -155,6 +155,33 @@ li{
     border: 1px black;
     text-align:center;
 }
+.form-login{
+    margin: auto;
+    padding: 10px;
+    width: 270px;
+    border: 1px solid #f0a500;
+    border-radius: 10px;
+}
+.formdangki{
+    margin: auto;
+    width: 400px;
+}
+.right-nav{
+    width: 150px;
+    position: fixed;
+    display: block  ;
+    float: right;
+    right: 5px;
+    top: 350px;
+    border: 2px solid red;
+    padding: 5px;
+    border-right: none;
+}
+.right-item{
+    background-color: #d6d6d6;
+    padding: 5px 0;
+    margin: 5px 0;
+}
                                     /* footer */
 footer{
     background-color:black;

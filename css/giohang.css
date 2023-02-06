@@ -1,0 +1,108 @@
+input{
+    border-radius: 5px;
+    height: 25px;
+}
+li{
+    list-style: none;
+}
+html{
+    font-family:sans-serif;
+}
+textarea{
+    border-radius: 5px;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+                                    /* menu */
+                                /* body */
+.body{
+    padding-top: 150px;
+    background-color: #f4f4f4;
+    min-height: 500px;
+}
+.container{
+    border: 1px black;
+    text-align:center;
+}
+.container>table{
+    margin: auto;
+    padding: auto;
+}
+.form{
+    margin: 10px;
+    text-align:left;
+    padding-left: 35%;
+}
+.title{
+    padding: 5px;
+}
+.form>a{
+    margin: 5px;
+}
+.form>input{
+    margin: 5px;
+    width: 300px;
+}
+.form>textarea{
+    margin: 5px;
+    height: 100px;
+    width: 500px;
+    padding-left: 5px;
+}
+.form>input[type="submit"]{
+    margin-left: 160px;
+    width: 100px;
+}
+.form>input[type="submit"]:hover{
+    cursor: pointer;
+}
+.form>input[type="reset"]{
+    width: 100px;
+}
+.form>input[type="reset"]:hover{
+    cursor: pointer;
+}
+.so_luong{
+    width: 50px;
+}
+.gio_hang{
+    
+}
+.table{
+}
+.form{
+    margin: 0 auto;
+}
+.right-nav{
+    display: none;
+}
+                                    /* footer */
+footer{
+    background-color:black;
+}
+.footer{
+    border-top:solid 40px #CF7500;
+    background-color: #1a1c20;
+    color: #f4f4f4;
+    height: fit-content;
+    position: sticky;
+    bottom: 0;
+}
+.left{
+    width: 50%;
+    text-align: center;
+    margin: 0;
+    display: inline-block;
+}
+.right{
+    width: 50%;
+    text-align: center;
+    margin: 0;
+    display: inline-block;
+    float:right;
+}
+.logo-footer{
+    padding-top: 5px;
+    height: 160px;
+}

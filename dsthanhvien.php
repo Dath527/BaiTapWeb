@@ -60,18 +60,16 @@
                     <th width="10%">Số điện thoại</th>
                     <th width="10%">Họ Tên</th>
                     <th width="40%">Địa chi</th>
-                    <th width="10%">Sửa</th>
                     <th width="10%">Xóa</th>
                 </tr>
                 <?php while($row = mysqli_fetch_array($query)){?>
                     <tr>
                         <td><span><?php echo $row['tai_khoan'];?></span></td>
                         <td class="tensanpham"><?php echo $row['mat_khau'];?></a></td>
-                        <td class="gia"><span class="price"><?php echo $row['phone'];?></span></td>
-                        <td class="nhacungcap"><?php echo $row['name'];?></td>
-                        <td class="nhacungcap"><?php echo $row['address'];?></td>
-                        <td>Sửa</td>
-                        <td>Xóa</td>
+                        <td ><span class="price"><?php echo $row['phone'];?></span></td>
+                        <td ><?php echo $row['name'];?></td>
+                        <td ><?php echo $row['address'];?></td>
+                        <td><a  href="xoatv.php?tk=<?php echo $row['tai_khoan'];?>">Xóa</td>
                         </tr>
                 <?php }?>
             </table>

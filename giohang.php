@@ -11,18 +11,24 @@
         } 
           
     } 
-  
+    
+    if(isset($_POST['thanhtoan']))
+    {
+        header('location: trangchu.php?page_layout=thanhtoan');
+    }
 ?>
-<form method="post"> 
+<div class="giohang">
+<form method="post" class="form"> 
       
-    <table> 
+    <table class="table"> 
           
-        <tr> 
-            <th>Name</th> 
-            <th>so_luong</th> 
-            <th>Price</th> 
-            <th>Items Price</th>
-            <th> Xoa </th>
+        <tr>
+            <th>Ảnh</th>
+            <th>Tên SP</th> 
+            <th>Số lượng</th> 
+            <th>Đơn giá</th> 
+            <th>Giá</th>
+            <th>Xóa</th>
         </tr> 
           
         <?php 
@@ -34,7 +40,6 @@
                     } 
                       
                     $sql=substr($sql, 0, -1).") ORDER BY ten_sp ASC";
-                    echo $sql;
                     $query=mysqli_query($dbConnect,$sql); 
                     $totalprice=0; 
                     while($row=mysqli_fetch_array($query)){ 
@@ -42,24 +47,24 @@
                         $totalprice+=$subtotal; 
                     ?> 
                         <tr> 
+                            <td><img src="images/<?php echo $row['anh_sp'];?>" alt="điện thoại" class="anh">
                             <td><?php echo $row['ten_sp'] ?></td> 
-                            <td><input type="number" name="so_luong[<?php echo $row['id_sp'] ?>]" size="5" value="<?php echo $_SESSION['cart'][$row['id_sp']]['so_luong'] ?>" /></td> 
+                            <td><input class="so_luong" type="number" name="so_luong[<?php echo $row['id_sp'] ?>]" size="5" value="<?php echo $_SESSION['cart'][$row['id_sp']]['so_luong'] ?>" /></td> 
                             <td><?php echo $row['gia_sp'] ?>VNĐ</td> 
                             <td><?php echo $_SESSION['cart'][$row['id_sp']]['so_luong']*$row['gia_sp'] ?>VNĐ</td>
-                            <td><a href="trangchu.php?page_layout=xoagiohang&id_sp=<?php echo $row['id_sp']; ?>" > X </a></td>
+                            <td><a href="trangchu.php?page_layout=xoagiohang&id_sp=<?php echo $row['id_sp']; ?>" >   X </a></td>
                         </tr> 
                     <?php 
                           
-                    } 
+                    }   
         ?> 
                     <tr> 
-                        <td colspan="4">Total Price: <?php echo $totalprice ?></td> 
+                        <td colspan="4">Tổng cộng:<span style="color:red;"> <?php echo $totalprice ?> VNĐ</span> </td> 
                     </tr> 
           
     </table> 
     <br /> 
     <button type="submit" name="capnhat">Cập nhật giỏ hàng</button>
-    <button type="submit" name="thanhtoan">Thanh toán</button>
+    <button type="submit" name="thanhtoan">Thoan toán</button>
 </form> 
-<br /> 
-<p>To remove an item, set it's so_luong to 0. </p>
+</div>
