@@ -57,6 +57,7 @@
             
             case 'thanhvien' : echo '<link rel="stylesheet" type="text/css" href="css/dsthanhvien.css" />';
             break;
+            
             case 'dienthoai': echo '<link rel="stylesheet" type="text/css" href="css/danhsachsp.css" />';
             break;
 
@@ -67,15 +68,18 @@
             break;
 
             case 'showsp': echo '<link rel="stylesheet" type="text/css" href="css/showsp.css" />';
+            break;
 
             case 'giohang': echo '<link rel="stylesheet" type="text/css" href="css/giohang.css" />';
+            break;
 
             case 'thanhtoan': echo '<link rel="stylesheet" type="text/css" href="css/thanhtoan.css" />';
+            break;
 
             case 'dangnhap': echo '<link rel="stylesheet" type="text/css" href="css/dangnhap.css" />';
+            break;
 
             case 'dangki': echo '<link rel="stylesheet" type="text/css" href="css/dangnhap.css" />';
-
             break;
         }
     }  
