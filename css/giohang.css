@@ -77,6 +77,15 @@ input[type="number"] {
 .right-nav{
     display: none;
 }
+.sdt{
+    width:200px;
+}
+.diachi{
+    width:500px;
+}
+.kcgh{
+    margin-top:20px;
+}
                                     /* footer */
 footer{
     background-color:black;

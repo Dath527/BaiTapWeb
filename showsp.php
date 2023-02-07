@@ -17,11 +17,9 @@
 
     }
 ?>
-<?php 
-  
-  if(isset($_GET['action']) && $_GET['action']=="add"){ 
-        
-      $id=intval($_GET['id_sp']); 
+<?php
+    if(isset($_POST['submit'])){
+        $id=intval($_GET['id_sp']); 
         
       if(isset($_SESSION['cart'][$id])){ 
             
@@ -55,53 +53,17 @@
         <div class="container">
             <form method="post" enctype="multipart/form-data">
                 <div class="form">
-                    <br>
                     <div class="tensanpham">
                             <?php echo $row['ten_sp'];?>
-                        </div>
+                    </div>
                     <div class="giatien">
                         <?php echo $row['gia_sp'];?> VNĐ
                     </div>
-                    <br>
                         <img src="images/<?php echo $row['anh_sp'];?>" class="anh">
-                    <br>
-                        <textarea cols="60" rows="12" name="comment">"<?php if(isset($_POST['comment'])){echo $row['comment'];} else{echo $row['comment'];}?>"</textarea>
-                        <?php if(isset($error_comment)){echo $error_comment;}?>
-                    <br>
-                        <a href="trangchu.php?page_layout=showsp&action=add&id_sp=<?php echo $row['id_sp'] ?>">Add to cart</a>
-
+                    <div class="mota">
+                        <?php if(isset($_POST['comment'])){echo $row['comment'];} else{echo $row['comment'];}?>"
+                    </div>
                 </div>
-                
+                    <input type="submit" name="submit" value="Thêm sản phẩm vào giỏ hàng">
             </form>
         </div>
-<?php 
-  
-    if(isset($_SESSION['cart'])){ 
-          
-        $sql="SELECT * FROM sanpham WHERE id_sp IN ("; 
-          
-        foreach($_SESSION['cart'] as $id => $value) { 
-            $sql.=$id.","; 
-        } 
-          
-        $sql=substr($sql, 0, -1).") ORDER BY ten_sp ASC"; 
-        $query=mysqli_query($dbConnect,$sql); 
-        while($row=mysqli_fetch_array($query)){ 
-              
-?> 
-            <p><?php echo $row['ten_sp'] ?> x <?php echo $_SESSION['cart'][$row['id_sp']]['so_luong'] ?></p> 
-<?php 
-              
-        } 
-?> 
-        <hr /> 
-        <a href="trangchu.php?page_layout=giohang">Go to cart</a> 
-<?php 
-          
-    }else{ 
-          
-        echo "<p>Your Cart is empty. Please add some products.</p>"; 
-          
-    } 
-  
-?>

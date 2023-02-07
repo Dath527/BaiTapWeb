@@ -1,4 +1,10 @@
 <?php 
+    if(isset($_SESSION['errorMessage'])){
+        echo "<script type='text/javascript'>
+                alert('" . $_SESSION['errorMessage'] . "');
+              </script>";
+        unset($_SESSION['errorMessage']);
+    }
   
     if(isset($_POST['capnhat'])){ 
           
@@ -14,7 +20,22 @@
     
     if(isset($_POST['thanhtoan']))
     {
+        if($_POST['diachi'] == ''){
+            $error_diachi = '<span style="color:red;">(*)</span>';
+        }
+        else{
+            $diachi = $_POST['diachi'];
+        }
+        if($_POST['sdt'] == ''){
+            $error_sdt = '<span style="color:red;">(*)</span>';
+        }
+        else{
+            $sdt = $_POST['sdt'];
+        }
+        if (isset($diachi)&&isset($sdt))
+        {
         header('location: trangchu.php?page_layout=thanhtoan');
+        }
     }
 ?>
 <div class="giohang">
@@ -58,13 +79,29 @@
                           
                     }   
         ?> 
-                    <tr> 
-                        <td colspan="4">Tổng cộng:<span style="color:red;"> <?php echo $totalprice ?> VNĐ</span> </td> 
-                    </tr> 
+                    <tr>
+                        <div class="kcgh">
+                        <td colspan="6">Tổng cộng:<span style="color:red;"> <?php echo $totalprice ?> VNĐ</span> </td> 
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="kcgh">
+                        <td colspan="1"><a class="kcgh">Số điện thoại: </a></td>
+                        <td colspan="5"><input type="number" class="sdt" name="sdt">
+                        <?php if(isset($error_sdt)){echo$error_sdt;}?></td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="kcgh">
+                        <td colspan="1"><a class="kcgh">Địa chỉ: </a></td>
+                        <td colspan="5"><input type="text" class="diachi" name="diachi">
+                        <?php if(isset($error_diachi)){echo$error_diachi;}?></td>
+                        </div>
+                    </tr>
           
     </table> 
     <br /> 
     <button type="submit" name="capnhat">Cập nhật giỏ hàng</button>
-    <button type="submit" name="thanhtoan">Thoan toán</button>
+    <button type="submit" name="thanhtoan">Thanh toán</button>
 </form> 
 </div>
