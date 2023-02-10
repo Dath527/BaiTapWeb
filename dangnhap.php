@@ -53,6 +53,8 @@
                     $_SESSION['mk'] = $mk;
                     $_SESSION['auth'] = $row['quyen_truy_cap'];
                     $_SESSION['loginTimes'] = 0;
+                    $_SESSION['diachi'] = $row['diachi'];
+                    $_SESSION['sdt'] = $row['sdt'];
                     if($_SESSION['auth']==1){
                         header('location:admin.php');
                     }

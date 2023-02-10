@@ -1,7 +1,6 @@
 input{
     border-radius: 5px;
-    height: 35px;
-    font-size: 22px;
+    height: 25px;
 }
 li{
     list-style: none;
@@ -33,7 +32,6 @@ input[type="number"] {
 .form{
     margin: 10px;
     text-align:left;
-    padding-left: 35%;
 }
 .title{
     padding: 5px;
@@ -51,18 +49,12 @@ input[type="number"] {
     width: 500px;
     padding-left: 5px;
 }
-.form>button{
-    margin-left: 90px;
-    width: 150px;
-    height: 50px;
-    padding: 10px;
-    border-radius: 15px;
-    font-size: 14px;
-    font-weight: bold;
+.form>input[type="submit"]{
+    margin-left: 160px;
+    width: 100px;
 }
-.form>button:hover{
+.form>input[type="submit"]:hover{
     cursor: pointer;
-    background-color: #CF7500;
 }
 .form>input[type="reset"]{
     width: 100px;
@@ -72,10 +64,13 @@ input[type="number"] {
 }
 .so_luong{
     width: 50px;
-    margin:0 25% ;
 }
-.gio_hang{
-    
+.giohang{
+    background-color: palegreen;
+    border-radius: 50px;
+    margin-left: 30%;
+    width: 750px;
+    margin-bottom: 50px;
 }
 .table{
 }
@@ -95,46 +90,25 @@ input[type="number"] {
 }
 .kcgh{
     padding-bottom:20px;
-    font-size: 20px;
 }
 .bentrai{
     text-align: right;
     margin:10px 0;
+    padding: 20px 0;
 }
 .chitiettrai{
     font-weight: bold;
-    margin: 5px 5px;
-    font-size: 20px;
+    margin: 20px 5px;
+    font-size: 25px;
     min-width: 200px;
     height: auto;
 }
 .chitietphai{
-    margin: 5px 5px;
-    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 5px;
+    font-size: 25px;
     max-width: 500px;
     height: auto;
-    color: red;
-}
-.soluong{
-    align-items: center;
-    justify-content: center;
-}
-.hang{
-    font-weight: bold;
-    margin: 5px 5px;
-    font-size: 20px;
-}
-.xoa{
-    border: #1a1c20 solid .5px;
-    border-radius: 50%;
-    width: 22px;
-    height: 22px;
-    padding: 5px 5px;
-    text-align: center;
-}
-.xoa:hover{
-    cursor: pointer;
-    background-color: rgb(255, 0, 0);
 }
                                     /* footer */
 footer{

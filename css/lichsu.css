@@ -1,7 +1,6 @@
 input{
     border-radius: 5px;
-    height: 35px;
-    font-size: 22px;
+    height: 25px;
 }
 li{
     list-style: none;
@@ -51,18 +50,12 @@ input[type="number"] {
     width: 500px;
     padding-left: 5px;
 }
-.form>button{
-    margin-left: 90px;
-    width: 150px;
-    height: 50px;
-    padding: 10px;
-    border-radius: 15px;
-    font-size: 14px;
-    font-weight: bold;
+.form>input[type="submit"]{
+    margin-left: 160px;
+    width: 100px;
 }
-.form>button:hover{
+.form>input[type="submit"]:hover{
     cursor: pointer;
-    background-color: #CF7500;
 }
 .form>input[type="reset"]{
     width: 100px;
@@ -72,10 +65,8 @@ input[type="number"] {
 }
 .so_luong{
     width: 50px;
-    margin:0 25% ;
 }
 .gio_hang{
-    
 }
 .table{
 }
@@ -95,46 +86,48 @@ input[type="number"] {
 }
 .kcgh{
     padding-bottom:20px;
-    font-size: 20px;
 }
-.bentrai{
-    text-align: right;
-    margin:10px 0;
-}
-.chitiettrai{
+.cell{
     font-weight: bold;
-    margin: 5px 5px;
-    font-size: 20px;
-    min-width: 200px;
-    height: auto;
+    padding:5px;
+    max-width: 300px;
 }
-.chitietphai{
-    margin: 5px 5px;
-    font-size: 20px;
-    max-width: 500px;
-    height: auto;
-    color: red;
-}
-.soluong{
-    align-items: center;
-    justify-content: center;
-}
-.hang{
+.cell1{
     font-weight: bold;
-    margin: 5px 5px;
-    font-size: 20px;
-}
-.xoa{
-    border: #1a1c20 solid .5px;
-    border-radius: 50%;
-    width: 22px;
-    height: 22px;
-    padding: 5px 5px;
+    padding:5px;
+    max-width: 300px;
     text-align: center;
 }
-.xoa:hover{
+.cell2{
+    font-weight: bold;
+    font-size: 25px;
+}
+.row1{
+    background-color:palegreen; 
+    height: 40px;  
+}
+.row2{
+    background-color:aqua;
+    height: 40px;
+}
+.cell3{
+    background-color:rgb(115, 105, 255);
+    padding: 5px;
+    font-weight: bold;
+}
+.cell3:hover{
     cursor: pointer;
-    background-color: rgb(255, 0, 0);
+}
+.cell4{
+    margin: 20px 0 ;
+}
+.page{
+    padding-left: 23%;
+    font-weight: bold;
+    font-size: 18px;
+}
+.NU{
+    text-decoration: none;
 }
                                     /* footer */
 footer{

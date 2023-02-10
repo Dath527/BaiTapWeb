@@ -10,7 +10,9 @@
     else{
         $page = 1;
     }
+    if(isset($_GET['timkiem'])){
     $timkiem = $_GET['timkiem'];
+    }
     // Hiển thị số Sản phẩm trên một trang
     $rowsPerPage = 10;
 
@@ -80,6 +82,12 @@
             break;
 
             case 'dangki': echo '<link rel="stylesheet" type="text/css" href="css/dangnhap.css" />';
+            break;
+            
+            case 'chitiet': echo '<link rel="stylesheet" type="text/css" href="css/chitiet.css" />';
+            break;
+            
+            case 'lichsu': echo '<link rel="stylesheet" type="text/css" href="css/lichsu.css" />';
             break;
         }
     }  
@@ -172,6 +180,8 @@
                   case 'xoagiohang': include_once('xoagiohang.php');break;
                   case 'thanhtoan': include_once('thanhtoan.php');break;
                   case 'test': include_once('test.php');break;
+                  case 'chitiet': include_once('chitiethoadon.php');break;
+                  case 'lichsu': include_once('lichsu.php');break;
                   default: include_once('sanpham.php');
                 }
             } else {
