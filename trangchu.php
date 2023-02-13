@@ -10,6 +10,7 @@
     else{
         $page = 1;
     }
+
     // Hiển thị số Sản phẩm trên một trang
     $rowsPerPage = 10;
 
@@ -34,7 +35,9 @@
     $query = mysqli_query($dbConnect, $sql);
     
     // Tổng số Sản phẩm trong CSDL
-    $sqlSelect = "SELECT * FROM sanpham";
+    $sqlSelect = "SELECT * FROM sanpham
+    INNER JOIN dmdienthoai
+    ON sanpham.id_dienthoai = dmdienthoai.id_dienthoai Where ten_sp like '%$timkiem%'";
     $totalRow = mysqli_num_rows(mysqli_query($dbConnect, $sqlSelect));
     // Tính tổng số trang
     $totalPage = ceil($totalRow/$rowsPerPage);
@@ -117,48 +120,40 @@
                 <li><div class="tab" id="dienthoaibtn"><a>Danh mục</a></div>
                     <div class="box">
                     <ul class="sub-menu" id="dienthoaimenu">
-                        <li><div class="tabbox"><a href="">Iphone</a></div></li>
-                        <li><div class="tabbox"><a href="">Samsung</a></div></li>
-                        <li><div class="tabbox"><a href="">Oppo</a></div></li>
-                        <li><div class="tabbox"><a href="">Xiaomi</a></div></li>
-                        <li><div class="tabbox"><a href="">Realme</a></div></li>
-                        <li><div class="tabbox"><a href="">Vivo</a></div></li>
-                        <li><div class="tabbox"><a href="">Nokia</a></div></li>
+                        <li><div class="tabbox"><a href="trangchu.php?timkiem=Iphone">Iphone</a></div></li>
+                        <li><div class="tabbox"><a href="trangchu.php?timkiem=Samsung">Samsung</a></div></li>
+                        <li><div class="tabbox"><a href="trangchu.php?timkiem=Oppo">Oppo</a></div></li>
+                        <li><div class="tabbox"><a href="trangchu.php?timkiem=Xiaomi">Xiaomi</a></div></li>
+                        <li><div class="tabbox"><a href="trangchu.php?timkiem=Realme">Realme</a></div></li>
+                        <li><div class="tabbox"><a href="trangchu.php?timkiem=Vivo">Vivo</a></div></li>
+                        <li><div class="tabbox"><a href="trangchu.php?timkiem=Nokia">Nokia</a></div></li>
                     </ul>
                     </div>
                 </li>
                 <li><div class="tab" id="laptopbtn"><a href="trangchu.php?timkiem=Samsung">Samsung</a></div>
                     <div class="box">
                     <ul class="sub-menu" id="laptopmenu">
-                        <li><div class="tabbox"><a href="">Macbook</a></div></li>
-                        <li><div class="tabbox"><a href="">Thinkpad</a></div></li>
-                        <li><div class="tabbox"><a href="">Asus</a></div></li>    
-                        <li><div class="tabbox"><a href="">HP</a></div></li>
-                        <li><div class="tabbox"><a href="">Dell</a></div></li>
-                        <li><div class="tabbox"><a href="">Acer</a></div></li>
-                        <li><div class="tabbox"><a href="">Lenovo</a></div></li>
+                        <li><div class="tabbox"><a href="trangchu.php?timkiem=Samsung Galaxy A">Samsung Galaxy A</a></div></li>
+                        <li><div class="tabbox"><a href="trangchu.php?timkiem=Samsung Galaxy S">Samsung Galaxy S</a></div></li>
+                        <li><div class="tabbox" style="height: 32px"><a href="trangchu.php?timkiem=Samsung Galaxy Note">Samsung Galaxy Note</a></div></li>    
+                        <li><div class="tabbox"><a href="trangchu.php?timkiem=Samsung Galaxy Z">Samsung Galaxy Z</a></div></li>
                     </ul>
                     </div>
                 </li>
                 <li><div class="tab" id="maytinhbangbtn"><a href="trangchu.php?timkiem=Iphone">Iphone</a></div>
                     <div class="box">
                     <ul class="sub-menu" id="maytinhbangmenu">
-                        <li><div class="tabbox"><a href="">Ipad</a></div></li>
-                        <li><div class="tabbox"><a href="">Samsung</a></div></li>
-                        <li><div class="tabbox"><a href="">Xiaomi</a></div></li>
-                        <li><div class="tabbox"><a href="">Lenovo</a></div></li>
-                        <li><div class="tabbox"><a href="">Oppo</a></div></li>
+                        <li><div class="tabbox"><a href="trangchu.php?timkiem=Iphone 14">Iphone 14</a></div></li>
+                        <li><div class="tabbox"><a href="trangchu.php?timkiem=Iphone 13">Iphone 13</a></div></li>
                     </ul>
                     </div>
                 </li>
                 <li><div class="tab" id="phukienbtn"><a href="trangchu.php?timkiem=Oppo">Oppo</a></div>
                     <div class="box">
                     <ul class="sub-menu" id="phukienmenu">
-                        <li><div class="tabbox"><a href="">Tai nghe</a></div></li>
-                        <li><div class="tabbox"><a href="">Loa</a></div></li>
-                        <li><div class="tabbox"><a href="">Cáp, sạc</a></div></li>
-                        <li><div class="tabbox"><a href="">Pin dự phòng</a></div></li>
-                        <li><div class="tabbox"><a href="">Các phụ kiện khác</a></div></li>
+                        <li><div class="tabbox"><a href="trangchu.php?timkiem=Oppo A">Oppo A</a></div></li>
+                        <li><div class="tabbox"><a href="trangchu.php?timkiem=Oppo F">Oppo F</a></div></li>
+                        <li><div class="tabbox"><a href="trangchu.php?timkiem=Oppo Reno">Oppo Reno</a></div></li>
                     </ul>
                     </div>
                 </li>
@@ -223,7 +218,7 @@
         
       foreach($_SESSION['cart'] as $id => $value) { 
           $sql.=$id.","; 
-      } 
+      }
         
       $sql=substr($sql, 0, -1).") ORDER BY ten_sp ASC"; 
       $query=mysqli_query($dbConnect,$sql); 
@@ -235,8 +230,6 @@
             
       } 
 ?> 
-      <hr /> 
-      <a href="trangchu.php?page_layout=giohang">Vào giỏ hàng</a> 
 <?php 
         
   }else{ 

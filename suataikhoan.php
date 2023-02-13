@@ -27,6 +27,10 @@
 		// $queryTv = mysqli_query($dbConnect,$sqlTv);
 		if( isset($sdt) && isset($name) && isset($diachi))
 		{
+			$_SESSION['ten']=$name;
+			$_SESSION['sdt']=$sdt;
+			$_SESSION['diachi']=$diachi;
+
 			$sql = "UPDATE thanhvien SET sdt = '$sdt', name = '$name', diachi = '$diachi'
 					WHERE tai_khoan like '%$tai_khoan%'";
 			$query = mysqli_query($dbConnect,$sql);

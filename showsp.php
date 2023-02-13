@@ -74,7 +74,7 @@
                 ?>
             </div>
                         <div class="mota">
-                            <?php if(isset($_POST['comment'])){echo $row['comment'];} else{echo $row['comment'];}?>"
+                            <textarea disabled class="scroll"> <?php if(isset($_POST['comment'])){echo $row['comment'];} else{echo $row['comment'];}?>" </textarea>
                         </div>
                     </div>
                         <input type="submit" name="submit" value="Thêm sản phẩm vào giỏ hàng">

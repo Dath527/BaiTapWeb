@@ -54,7 +54,10 @@
     if (!empty($_GET)) {
         switch($_GET['page_layout']){
             
-          case 'thanhvien' : echo '<link rel="stylesheet" type="text/css" href="css/dsthanhvien.css" />';
+          case 'nhanvien' : echo '<link rel="stylesheet" type="text/css" href="css/danhsachsp.css" />';
+          break;
+          
+          case 'khachhang' : echo '<link rel="stylesheet" type="text/css" href="css/danhsachsp.css" />';
           break;
           
           case 'dienthoai': echo '<link rel="stylesheet" type="text/css" href="css/danhsachsp.css" />';
@@ -95,6 +98,10 @@
           
           case 'matkhau': echo '<link rel="stylesheet" type="text/css" href="css/matkhau.css" />';
           break;
+
+          case 'suatv': echo '<link rel="stylesheet" type="text/css" href="css/suatv.css" />';
+          break;
+
         }
     }  
 ?>
@@ -105,44 +112,9 @@
             <ul>
                 <li style="margin: 0; width: 10%;"><div class="beephone"><img width="70px" height="70px" src="images/beephone.png" alt="logo" >
                 <a  href="admin.php">Bee<span>Phone</span></a></div></li>
-                <li><div class="tab"><a href="admin.php?page_layout=thanhvien">Thành viên</a></div></li>
-                <li><div class="tab" id="dienthoaibtn"><a href="admin.php?page_layout=dienthoai">Điện thoại</a></div>
-                    <div class="box">
-                    <ul class="sub-menu" id="dienthoaimenu">
-                        <li><div class="tabbox"><a href="">Iphone</a></div></li>
-                        <li><div class="tabbox"><a href="">Samsung</a></div></li>
-                        <li><div class="tabbox"><a href="">Oppo</a></div></li>
-                        <li><div class="tabbox"><a href="">Xiaomi</a></div></li>
-                        <li><div class="tabbox"><a href="">Realme</a></div></li>
-                        <li><div class="tabbox"><a href="">Vivo</a></div></li>
-                        <li><div class="tabbox"><a href="">Nokia</a></div></li>
-                    </ul>
-                    </div>
-                </li>
-                <!-- <li><div class="tab" id="laptopbtn"><a href="admin.php?page_layout=laptop">Laptop</a></div>
-                    <div class="box">
-                    <ul class="sub-menu" id="laptopmenu">
-                        <li><div class="tabbox"><a href="">Macbook</a></div></li>
-                        <li><div class="tabbox"><a href="">Thinkpad</a></div></li>
-                        <li><div class="tabbox"><a href="">Asus</a></div></li>    
-                        <li><div class="tabbox"><a href="">HP</a></div></li>
-                        <li><div class="tabbox"><a href="">Dell</a></div></li>
-                        <li><div class="tabbox"><a href="">Acer</a></div></li>
-                        <li><div class="tabbox"><a href="">Lenovo</a></div></li>
-                    </ul>
-                    </div>
-                </li>
-                <li><div class="tab" id="maytinhbangbtn"><a href="admin.php?page_layout=maytinhbang">Máy tính bảng</a></div>
-                    <div class="box">
-                    <ul class="sub-menu" id="maytinhbangmenu">
-                        <li><div class="tabbox"><a href="">Ipad</a></div></li>
-                        <li><div class="tabbox"><a href="">Samsung</a></div></li>
-                        <li><div class="tabbox"><a href="">Xiaomi</a></div></li>
-                        <li><div class="tabbox"><a href="">Lenovo</a></div></li>
-                        <li><div class="tabbox"><a href="">Oppo</a></div></li>
-                    </ul>
-                    </div>
-                </li> -->
+                <li><div class="tab"><a href="admin.php?page_layout=nhanvien">Nhân viên</a></div></li>
+                <li><div class="tab"><a href="admin.php?page_layout=khachhang">Khách hàng</a></div></li>
+                <li><div class="tab"><a href="admin.php?page_layout=dienthoai">Điện thoại</a></div></li>
                 <!-- <li><div class="tab" id="phukienbtn"><a href="admin.php?page_layout=phukien">Phụ kiện</a></div>
                     <div class="box">
                     <ul class="sub-menu" id="phukienmenu">
@@ -155,17 +127,16 @@
                     </div>
                 </li> -->
                 <li style="width: 220px;"><div><form><input placeholder="Tìm kiếm" type="search" class="timkiem" name="timkiem" onsubmit=""></form></div></li>
-                      <li>
-                      <div class="tab" id="taikhoanbtn"> <a> <?php echo $_SESSION['ten'] ?></a></div>
+                      <li><div class="tab" id="taikhoanbtn"><a><?php echo $_SESSION['ten']?></a></div>
                       <div class="box">
-                      <ul class="sub-menu" id="taikhoanmenu">
+                   <ul class="sub-menu" id="taikhoanmenu">
                         <li><div class="tabbox"><a href="admin.php?page_layout=taikhoan">Thông tin tài khoản</a></div></li>
                         <li><div class="tabbox"><a href="admin.php?page_layout=matkhau">Đổi mật khẩu</a></div></li>
-                        <li><div class="tabbox"><a href="admin.php?page_layout=lichsu">Lịch sử mua hàng</a></div></li>
+                        <li><div class="tabbox"><a href="admin.php?page_layout=lichsu">Xem hóa đơn</a></div></li>
                         <li><div class="tabbox"><a href="admin.php?page_layout=dangxuat">Đăng xuất</a></div></li>
-                      </ul>
+                </ul>
                 </div>
-                </li>
+                </li>;
             </ul>
         </div>
     </header>
@@ -173,7 +144,8 @@
         <?php
             if (!empty($_GET['page_layout'])) {
                 switch($_GET['page_layout']){
-                  case 'thanhvien' : include_once('dsthanhvien.php');break;
+                  case 'nhanvien' : include_once('dsthanhvien.php');break;
+                  case 'khachhang' : include_once('dskhachhang.php');break;
                   case 'dienthoai': include_once('danhsachsp.php');break;
                   case 'themsp': include_once('themsp.php');break;
                   case 'suasp': include_once('suasp.php');break;
@@ -187,10 +159,11 @@
                   case 'thanhtoan': include_once('thanhtoan.php');break;
                   case 'test': include_once('test.php');break;
                   case 'chitiet': include_once('chitiethoadon.php');break;
-                  case 'lichsu': include_once('lichsu.php');break;
+                  case 'lichsu': include_once('lichsuadmin.php');break;
                   case 'suatk': include_once('suataikhoan.php');break;
                   case 'taikhoan': include_once('taikhoan.php');break;
                   case 'matkhau': include_once('matkhau.php');break;
+                  case 'suatv': include_once('suatv.php');break;
                   default: include_once('sanpham.php');
                 }
             } else {
@@ -215,7 +188,6 @@
         </div>
     </footer>
     <script>
-                                                                    //tai khoan Hover
 const el5 = document.getElementById('taikhoanbtn');
 
 const hiddenEl5 = document.getElementById('taikhoanmenu');

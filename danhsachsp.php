@@ -41,6 +41,7 @@
       header('location:admin.php?page_layout=themsp');
     }
 ?>
+    <div class="title">Quản lý thành viên</div>
         <form method="POST" enctype="multipart/form-data">
           <div class="them-nhap-xuat">
             <div class="them">

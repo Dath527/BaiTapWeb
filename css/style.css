@@ -162,7 +162,6 @@ li{
     float: right;
     right: 5px;
     top: 350px;
-    border: 2px solid red;
     padding: 5px;
     border-right: none;
 }
@@ -171,6 +170,14 @@ li{
     padding: 5px 0;
     margin: 5px 0;
 }
+.scroll{
+    font-size: 25px;
+    width: 450px;
+    height: 200px;
+}
+.scroll::-webkit-scrollbar {
+    display: none;
+  }
                                     /* footer */
 footer{
     background-color:black;

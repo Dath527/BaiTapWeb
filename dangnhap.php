@@ -51,15 +51,15 @@
                 } else{
                     $_SESSION['tk'] = $tk;
                     $_SESSION['mk'] = $mk;
+                    $_SESSION['auth'] = $row['quyen_truy_cap'];
                     $_SESSION['loginTimes'] = 0;
                     $_SESSION['diachi'] = $row['diachi'];
                     $_SESSION['sdt'] = $row['sdt'];
                     $_SESSION['ten'] = $row['name'];
-                    $_SESSION['auth'] = $row['quyen_truy_cap'];
-                    if($_SESSION['auth']=1){
-                        header('location:admin.php');
+                    if($_SESSION['auth']==0){    
+                        header('location:trangchu.php');
                     }
-                    else header('location:trangchu.php');
+                    else header('location:admin.php');
                 }
             }
         }

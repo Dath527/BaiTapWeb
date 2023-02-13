@@ -28,7 +28,6 @@
             }
         }
         if($_FILES['anh_sp']['name'] == ''){
-            $error_anh_sp = '<span style="color:red;">(*)</span>';
         }
         else{
             $anh_sp = $_FILES['anh_sp']['name'];
@@ -66,8 +65,15 @@
        $sql = "UPDATE sanpham SET id_dienthoai = $id_dienthoai, ten_sp = '$ten_sp', anh_sp = '$anh_sp', gia_sp = '$gia_sp',comment = '$comment', so_luong = '$so_luong' WHERE id_sp = $id_sp";
        $query = mysqli_query($dbConnect, $sql);
        header('location:admin.php?page_layout=dienthoai');
-
     }
+    elseif(isset($ten_sp) && isset($gia_sp) && isset($id_dienthoai) 
+        && isset($comment) && isset($so_luong) && $so_luong>0 && $gia_sp>0){
+
+       $sql = "UPDATE sanpham SET id_dienthoai = $id_dienthoai, ten_sp = '$ten_sp', gia_sp = '$gia_sp',comment = '$comment', so_luong = '$so_luong' WHERE id_sp = $id_sp";
+       $query = mysqli_query($dbConnect, $sql);
+       header('location:admin.php?page_layout=dienthoai');
+    }
+
 ?>
         <div class="container">
             <form method="post" enctype="multipart/form-data">
@@ -101,7 +107,7 @@
                     <br>
                         <img src="images/<?php echo $row['anh_sp'];?>" class="anh">
                     <br>
-                        <input type="file" name="anh_sp" id="anhsp">
+                        <input type="file" name="anh_sp" id="anhsp" value="<?php echo $row['anh_sp'] ?>">
                         <?php if(isset($error_anh_sp)){echo $error_anh_sp;}?>
                     <br>
                         <a>Số lượng</a>

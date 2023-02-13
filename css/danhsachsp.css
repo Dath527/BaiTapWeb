@@ -50,6 +50,9 @@ input::-webkit-inner-spin-button {
     padding: auto;
     border:#1a1c20 solid .5px;
 }
+.title{
+    font-size: 30px;
+}
                                     /* footer */
 footer{
     background-color:black;

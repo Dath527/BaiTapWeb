@@ -40,10 +40,10 @@
 		
 	}
 	if(isset($tai_khoan) && isset($mat_khau) && isset($phone) && isset($name) && isset($address)){
-    	echo '<script language="javascript">alert("Đăng kí thành công"); window.location="trangchu.php?page_layout=dangnhap";</script>';
-		$sql = "INSERT INTO thanhvien(tai_khoan, mat_khau, phone, name, address, quyen_truy_cap)
+		$sql = "INSERT INTO thanhvien(tai_khoan, mat_khau, sdt, name, diachi, quyen_truy_cap)
 				VALUES ('$tai_khoan', '$mat_khau', '$phone', '$name', '$address', '0')";
 		$query = mysqli_query($dbConnect,$sql);
+		echo '<script language="javascript">alert("Đăng kí thành công"); window.location="trangchu.php?page_layout=dangnhap";</script>';
 		
 	}
     

@@ -15,13 +15,14 @@
     $firstRow = $page*$rowsPerPage - $rowsPerPage;
 
     // Liệt kê Danh sách dữ liệu trên mỗi trang
-    $sql = "SELECT * FROM thanhvien WHERE quyen_truy_cap = 1
+    $sql = "SELECT * FROM thanhvien WHERE quyen_truy_cap = 0
+            AND  tai_khoan like '%$timkiem%'
             ORDER BY tai_khoan ASC
             LIMIT $firstRow, $rowsPerPage";
     $query = mysqli_query($dbConnect, $sql);
     
     // Tổng số Sản phẩm trong CSDL
-    $sqlSelect = "SELECT * FROM thanhvien WHERE quyen_truy_cap = 1";
+    $sqlSelect = "SELECT * FROM thanhvien WHERE quyen_truy_cap = 0";
     $totalRow = mysqli_num_rows(mysqli_query($dbConnect, $sqlSelect));
     // Tính tổng số trang
     $totalPage = ceil($totalRow/$rowsPerPage);
@@ -40,7 +41,7 @@
     }
 ?>
         <div class="container">
-          <div class="title">Quản lý thành viên</div>
+        <div class="title">Quản lý khách hàng</div>
             <table>
                 <tr>
                     <th width="5%">Tài khoản</th>
@@ -52,11 +53,11 @@
                 </tr>
                 <?php while($row = mysqli_fetch_array($query)){?>
                     <tr>
-                        <td><?php echo $row['tai_khoan'];?></td>
+                        <td><span><?php echo $row['tai_khoan'];?></span></td>
                         <td><?php echo $row['mat_khau'];?></a></td>
-                        <td><?php echo $row['sdt'];?></td>
-                        <td><?php echo $row['name'];?></td>
-                        <td><?php echo $row['diachi'];?></td>
+                        <td ><span class="price"><?php echo $row['sdt'];?></span></td>
+                        <td ><?php echo $row['name'];?></td>
+                        <td ><?php echo $row['diachi'];?></td>
                         <td><a  href="xoatv.php?tk=<?php echo $row['tai_khoan'];?>">Xóa</td>
                         </tr>
                 <?php }?>
