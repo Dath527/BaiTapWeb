@@ -54,18 +54,47 @@
     if (!empty($_GET)) {
         switch($_GET['page_layout']){
             
-            case 'thanhvien' : echo '<link rel="stylesheet" type="text/css" href="css/danhsachsp.css" />';
-            break;
-            
-            case 'dienthoai': echo '<link rel="stylesheet" type="text/css" href="css/danhsachsp.css" />';
-            break;
+          case 'thanhvien' : echo '<link rel="stylesheet" type="text/css" href="css/dsthanhvien.css" />';
+          break;
+          
+          case 'dienthoai': echo '<link rel="stylesheet" type="text/css" href="css/danhsachsp.css" />';
+          break;
 
-            case 'themsp': echo '<link rel="stylesheet" type="text/css" href="css/themsp.css" />';
-            break;
-            
-            case 'suasp': echo '<link rel="stylesheet" type="text/css" href="css/suasp.css" />';
+          case 'themsp': echo '<link rel="stylesheet" type="text/css" href="css/themsp.css" />';
+          break;
+          
+          case 'suasp': echo '<link rel="stylesheet" type="text/css" href="css/suasp.css" />';
+          break;
 
-            break;
+          case 'showsp': echo '<link rel="stylesheet" type="text/css" href="css/showsp.css" />';
+          break;
+
+          case 'giohang': echo '<link rel="stylesheet" type="text/css" href="css/giohang.css" />';
+          break;
+
+          case 'thanhtoan': echo '<link rel="stylesheet" type="text/css" href="css/thanhtoan.css" />';
+          break;
+
+          case 'dangnhap': echo '<link rel="stylesheet" type="text/css" href="css/dangnhap.css" />';
+          break;
+
+          case 'dangki': echo '<link rel="stylesheet" type="text/css" href="css/dangki.css" />';
+          break;
+          
+          case 'chitiet': echo '<link rel="stylesheet" type="text/css" href="css/chitiet.css" />';
+          break;
+          
+          case 'lichsu': echo '<link rel="stylesheet" type="text/css" href="css/lichsu.css" />';
+          break;
+          
+          case 'suatk': echo '<link rel="stylesheet" type="text/css" href="css/suatk.css" />';
+          break;
+          
+          case 'taikhoan': echo '<link rel="stylesheet" type="text/css" href="css/taikhoan.css" />';
+          break;
+          
+          case 'matkhau': echo '<link rel="stylesheet" type="text/css" href="css/matkhau.css" />';
+          break;
         }
     }  
 ?>
@@ -126,24 +155,17 @@
                     </div>
                 </li> -->
                 <li style="width: 220px;"><div><form><input placeholder="Tìm kiếm" type="search" class="timkiem" name="timkiem" onsubmit=""></form></div></li>
-                <li><div class="tab"><a href="">Giỏ hàng</a></div></li>
-                <?php
-                  if(isset($_SESSION['tk'])){
-                      echo '<li><div class="tab" id="taikhoanbtn"><a>'.$_SESSION['ten'].'</a></div>'
-                      .'<div class="box">'
-                   .'<ul class="sub-menu" id="taikhoanmenu">'
-                        .'<li><div class="tabbox"><a href="admin.php?page_layout=taikhoan">Thông tin tài khoản</a></div></li>'
-                        .'<li><div class="tabbox"><a href="admin.php?page_layout=matkhau">Đổi mật khẩu</a></div></li>'
-                        .'<li><div class="tabbox"><a href="admin.php?page_layout=lichsu">Lịch sử mua hàng</a></div></li>'
-                        .'<li><div class="tabbox"><a href="admin.php?page_layout=dangxuat">Đăng xuất</a></div></li>'
-                .'</ul>'
-                .'</div>'
-                .'</li>';
-                    }
-                  else{
-                    echo '<li><div class="tab"><a href="admin.php?page_layout=dangnhap">Đăng nhập</a></div></li>';
-                  }
-                ?>
+                      <li>
+                      <div class="tab" id="taikhoanbtn"> <a> <?php echo $_SESSION['ten'] ?></a></div>
+                      <div class="box">
+                      <ul class="sub-menu" id="taikhoanmenu">
+                        <li><div class="tabbox"><a href="admin.php?page_layout=taikhoan">Thông tin tài khoản</a></div></li>
+                        <li><div class="tabbox"><a href="admin.php?page_layout=matkhau">Đổi mật khẩu</a></div></li>
+                        <li><div class="tabbox"><a href="admin.php?page_layout=lichsu">Lịch sử mua hàng</a></div></li>
+                        <li><div class="tabbox"><a href="admin.php?page_layout=dangxuat">Đăng xuất</a></div></li>
+                      </ul>
+                </div>
+                </li>
             </ul>
         </div>
     </header>
@@ -158,11 +180,17 @@
                   case 'showsp': include_once('showsp.php');break;
                   case 'giohang': include_once('giohang.php');break;
                   case 'dangnhap': include_once('dangnhap.php');break;
+                  case 'dangki': include_once('dangki.php');break;
                   case 'dangxuat': include_once('dangxuat.php');break;
                   case 'xoasp': include_once('xoasp.php');break;
                   case 'xoagiohang': include_once('xoagiohang.php');break;
                   case 'thanhtoan': include_once('thanhtoan.php');break;
                   case 'test': include_once('test.php');break;
+                  case 'chitiet': include_once('chitiethoadon.php');break;
+                  case 'lichsu': include_once('lichsu.php');break;
+                  case 'suatk': include_once('suataikhoan.php');break;
+                  case 'taikhoan': include_once('taikhoan.php');break;
+                  case 'matkhau': include_once('matkhau.php');break;
                   default: include_once('sanpham.php');
                 }
             } else {
@@ -187,86 +215,6 @@
         </div>
     </footer>
     <script>
-                                                                    //Dien thoai Hover
-        const el = document.getElementById('dienthoaibtn');
-
-const hiddenEl = document.getElementById('dienthoaimenu');
-
-el.addEventListener('mouseover', function handleMouseOver() {
-  hiddenEl.style.display = 'block';
-});
-
-hiddenEl.addEventListener('mouseout', function handleMouseOut() {
-  hiddenEl.style.display = 'none';
-});
-
-el.addEventListener('mouseout', function handleMouseOut() {
-  hiddenEl.style.display = 'none';
-});
-
-hiddenEl.addEventListener('mouseover', function handleMouseOver() {
-  hiddenEl.style.display = 'block';
-});
-
-const el2 = document.getElementById('laptopbtn');
-                                                                    //Laptop Hover
-const hiddenEl2 = document.getElementById('laptopmenu');
-
-el2.addEventListener('mouseover', function handleMouseOver() {
-  hiddenEl2.style.display = 'block';
-});
-
-hiddenEl2.addEventListener('mouseout', function handleMouseOut() {
-  hiddenEl2.style.display = 'none';
-});
-
-el2.addEventListener('mouseout', function handleMouseOut() {
-  hiddenEl2.style.display = 'none';
-});
-
-hiddenEl2.addEventListener('mouseover', function handleMouseOver() {
-  hiddenEl2.style.display = 'block';
-});
-                                                                    //May tinh bang Hover
-const el3 = document.getElementById('maytinhbangbtn');
-
-const hiddenEl3 = document.getElementById('maytinhbangmenu');
-
-el3.addEventListener('mouseover', function handleMouseOver() {
-  hiddenEl3.style.display = 'block';
-});
-
-hiddenEl3.addEventListener('mouseout', function handleMouseOut() {
-  hiddenEl3.style.display = 'none';
-});
-
-el3.addEventListener('mouseout', function handleMouseOut() {
-  hiddenEl3.style.display = 'none';
-});
-
-hiddenEl3.addEventListener('mouseover', function handleMouseOver() {
-  hiddenEl3.style.display = 'block';
-});
-                                                                    //Phu kien Hover
-const el4 = document.getElementById('phukienbtn');
-
-const hiddenEl4 = document.getElementById('phukienmenu');
-
-el4.addEventListener('mouseover', function handleMouseOver() {
-  hiddenEl4.style.display = 'block';
-});
-
-hiddenEl4.addEventListener('mouseout', function handleMouseOut() {
-  hiddenEl4.style.display = 'none';
-});
-
-el4.addEventListener('mouseout', function handleMouseOut() {
-  hiddenEl4.style.display = 'none';
-});
-
-hiddenEl4.addEventListener('mouseover', function handleMouseOver() {
-  hiddenEl4.style.display = 'block';
-});
                                                                     //tai khoan Hover
 const el5 = document.getElementById('taikhoanbtn');
 
