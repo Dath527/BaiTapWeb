@@ -51,19 +51,33 @@
 
 ?>
         <div class="container">
-            <form method="post" enctype="multipart/form-data">
-                <div class="form">
-                    <div class="tensanpham">
-                            <?php echo $row['ten_sp'];?>
+            <div class="sanpham">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="form">
+                        <div class="tensanpham">
+                                <?php echo $row['ten_sp'];?>
+                        </div>
+                        <div class="giatien">
+                            <?php echo $row['gia_sp'];?> VNĐ
+                        </div>
+                            <img src="images/<?php echo $row['anh_sp'];?>" class="anh">
+            <div class="tinhtrang">
+                <?php 
+                if($row['so_luong']=0){ 
+                    echo '<div class="hethang">Tình trạng:</div>'
+                    .'<div class="hethang2">HẾT HÀNG</div>';
+                }else
+                {
+                    echo '<div class="conhang">Tình trạng:</div>'
+                    .'<div class="conhang2">CÒN HÀNG</div>';
+                }
+                ?>
+            </div>
+                        <div class="mota">
+                            <?php if(isset($_POST['comment'])){echo $row['comment'];} else{echo $row['comment'];}?>"
+                        </div>
                     </div>
-                    <div class="giatien">
-                        <?php echo $row['gia_sp'];?> VNĐ
-                    </div>
-                        <img src="images/<?php echo $row['anh_sp'];?>" class="anh">
-                    <div class="mota">
-                        <?php if(isset($_POST['comment'])){echo $row['comment'];} else{echo $row['comment'];}?>"
-                    </div>
-                </div>
-                    <input type="submit" name="submit" value="Thêm sản phẩm vào giỏ hàng">
-            </form>
+                        <input type="submit" name="submit" value="Thêm sản phẩm vào giỏ hàng">
+                </form>
+            </div>
         </div>

@@ -32,9 +32,7 @@ input[type="number"] {
 .form{
     margin: 10px;
     text-align:left;
-    margin-left: 40%;
-    margin-right:40%;
-    width: auto;
+    width: 500px;
     background-color: pink;
     border-radius: 25px;
 }
@@ -98,6 +96,32 @@ input[type="number"] {
     margin:5%;
     font-size: 20px;
     max-width: 100%;
+    padding-bottom: 20px;
+}
+.conhang{
+    font-size: 25px;
+}
+.conhang2{
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(0, 228, 0);
+}
+.hethang{
+    font-size: 25px;
+}
+.hethang2{
+    font-size: 25px;
+    font-weight: bold;
+    color: red;
+}
+.tinhtrang{
+    display:inline-block;
+    vertical-align: 90px;
+    margin-left: 50px;
+}
+.sanpham{
+    display:inline-block;
+    border: none;
 }
                                     /* footer */
 footer{

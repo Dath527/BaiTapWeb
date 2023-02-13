@@ -55,11 +55,14 @@
         </tr> 
           
         <?php 
-            if(isset($_SESSION['tk']))
+            if(isset($_SESSION['diachi']))
              {
                 $diachi=$_SESSION['diachi'];
+             }
+             if(isset($_SESSION['sdt']))
+             {
                 $sdt=$_SESSION['sdt'];
-            }
+                }
           
             $sql="SELECT * FROM sanpham WHERE id_sp IN ("; 
                       

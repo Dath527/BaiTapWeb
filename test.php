@@ -1,5 +1,3 @@
 <?php
-    echo '<script language="javascript">';
-    echo 'alert("message successfully sent")';
-    echo '</script>';
+    session_destroy();
 ?>

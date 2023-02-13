@@ -53,26 +53,26 @@
 
 <form method="post" enctype="multipart/form-data">
 	<div class="formdangki">
-		<a>Tài khoản</a><br/>
-		<input type="text" name="tai_khoan" id="tai_khoan" />
-		<?php if(isset($error_tai_khoan)){echo$error_tai_khoan;}?>
-		<br/>
-		<a>Mật khẩu</a><br/>
-		<input type="password" name="mat_khau" id="mat_khau" />
-		<?php if(isset($error_mat_khau)){echo$error_mat_khau;}?>
-		<br/>
-		<a>Số điện thoại</a><br/>
-		<input type="text" name="phone" id="phone" />
-		<?php if(isset($error_phone)){echo$error_phone;}?>
-		<br/>
-		<a> Họ tên</a><br/>
-		<input type="text" name="name" id="name" />	
-        <?php if(isset($error_name)){echo$error_name;}?>
-		<br/>
-		<a>Địa chỉ</a><br/>
-		<input type="text" name="address" id="address"/>
-		<?php if(isset($error_address)){echo$error_address;}?>
-		<br/>
-		<input type="submit" name="submit" value="Đăng kí"/>	
+		<div class="chitiettrai">Tài khoản</div>
+		<div class="chitietphai"><input class="tk"type="text" /></div>
+			<?php if(isset($error_tai_khoan)){echo$error_tai_khoan;}?>
+			<br/>
+		<div class="chitiettrai">Mật khẩu</div>
+		<div class="chitietphai"><input class="mk"type="password" /></div>
+			<?php if(isset($error_mat_khau)){echo$error_mat_khau;}?>
+			<br/>
+		<div class="chitiettrai">Số điện thoại</div>
+		<div class="chitietphai"><input class="sdt"type="text" /></div>
+			<?php if(isset($error_phone)){echo$error_phone;}?>
+			<br/>
+		<div class="chitiettrai">Họ tên</div>
+		<div class="chitietphai"><input class="ht"type="text" /></div>	
+       		<?php if(isset($error_name)){echo$error_name;}?>
+			<br/>
+		<div class="chitiettrai">Địa chỉ</div>
+		<div class="chitietphai"><input class="dc"type="text"/></div>
+			<?php if(isset($error_address)){echo$error_address;}?>
+			<br/>
+		<input class="dk" type="submit" name="submit" value="Đăng kí"/>	
 	</div>
 </form>

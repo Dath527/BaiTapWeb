@@ -10,9 +10,6 @@
     else{
         $page = 1;
     }
-    if(isset($_GET['timkiem'])){
-    $timkiem = $_GET['timkiem'];
-    }
     // Hiển thị số Sản phẩm trên một trang
     $rowsPerPage = 10;
 
@@ -20,11 +17,20 @@
     $firstRow = $page*$rowsPerPage - $rowsPerPage;
 
     // Liệt kê Danh sách dữ liệu trên mỗi trang
+    if(isset($_GET['timkiem'])){
+      $timkiem = $_GET['timkiem'];
     $sql = "SELECT * FROM sanpham
             INNER JOIN dmdienthoai
             ON sanpham.id_dienthoai = dmdienthoai.id_dienthoai Where ten_sp like '%$timkiem%'
             ORDER BY id_sp DESC
             LIMIT $firstRow, $rowsPerPage";
+    }else{
+    $sql = "SELECT * FROM sanpham
+            INNER JOIN dmdienthoai
+            ON sanpham.id_dienthoai = dmdienthoai.id_dienthoai
+            ORDER BY RAND ()
+            LIMIT $firstRow, $rowsPerPage";
+    }
     $query = mysqli_query($dbConnect, $sql);
     
     // Tổng số Sản phẩm trong CSDL
@@ -32,7 +38,6 @@
     $totalRow = mysqli_num_rows(mysqli_query($dbConnect, $sqlSelect));
     // Tính tổng số trang
     $totalPage = ceil($totalRow/$rowsPerPage);
-
     $listPage = '';
     for($i=1; $i <= $totalPage; $i++){
         if($i == $page){
@@ -81,13 +86,22 @@
             case 'dangnhap': echo '<link rel="stylesheet" type="text/css" href="css/dangnhap.css" />';
             break;
 
-            case 'dangki': echo '<link rel="stylesheet" type="text/css" href="css/dangnhap.css" />';
+            case 'dangki': echo '<link rel="stylesheet" type="text/css" href="css/dangki.css" />';
             break;
             
             case 'chitiet': echo '<link rel="stylesheet" type="text/css" href="css/chitiet.css" />';
             break;
             
             case 'lichsu': echo '<link rel="stylesheet" type="text/css" href="css/lichsu.css" />';
+            break;
+            
+            case 'suatk': echo '<link rel="stylesheet" type="text/css" href="css/suatk.css" />';
+            break;
+            
+            case 'taikhoan': echo '<link rel="stylesheet" type="text/css" href="css/taikhoan.css" />';
+            break;
+            
+            case 'matkhau': echo '<link rel="stylesheet" type="text/css" href="css/matkhau.css" />';
             break;
         }
     }  
@@ -150,10 +164,18 @@
                 </li>
                 <li style="width: 220px;"><div><form><input placeholder="Tìm kiếm" type="search" class="timkiem" name="timkiem" onsubmit=""></form></div></li>
                 <li><div class="tab"><a href="trangchu.php?page_layout=giohang">Giỏ hàng</a></div></li>
-
                 <?php
                   if(isset($_SESSION['tk'])){
-                      echo '<li><div class="tab"><a href="trangchu.php?page_layout=dangxuat">Đăng xuất</a></div></li>';
+                      echo '<li><div class="tab" id="taikhoanbtn"><a>'.$_SESSION['ten'].'</a></div>'
+                      .'<div class="box">'
+                   .'<ul class="sub-menu" id="taikhoanmenu">'
+                        .'<li><div class="tabbox"><a href="trangchu.php?page_layout=taikhoan">Thông tin tài khoản</a></div></li>'
+                        .'<li><div class="tabbox"><a href="trangchu.php?page_layout=matkhau">Đổi mật khẩu</a></div></li>'
+                        .'<li><div class="tabbox"><a href="trangchu.php?page_layout=lichsu">Lịch sử mua hàng</a></div></li>'
+                        .'<li><div class="tabbox"><a href="trangchu.php?page_layout=dangxuat">Đăng xuất</a></div></li>'
+                .'</ul>'
+                .'</div>'
+                .'</li>';
                     }
                   else{
                     echo '<li><div class="tab"><a href="trangchu.php?page_layout=dangnhap">Đăng nhập</a></div></li>';
@@ -182,6 +204,9 @@
                   case 'test': include_once('test.php');break;
                   case 'chitiet': include_once('chitiethoadon.php');break;
                   case 'lichsu': include_once('lichsu.php');break;
+                  case 'suatk': include_once('suataikhoan.php');break;
+                  case 'taikhoan': include_once('taikhoan.php');break;
+                  case 'matkhau': include_once('matkhau.php');break;
                   default: include_once('sanpham.php');
                 }
             } else {
@@ -299,7 +324,7 @@ el3.addEventListener('mouseout', function handleMouseOut() {
 hiddenEl3.addEventListener('mouseover', function handleMouseOver() {
   hiddenEl3.style.display = 'block';
 });
-                                                                    //Phu kien Hover
+                                                                //Phu kien Hover
 const el4 = document.getElementById('phukienbtn');
 
 const hiddenEl4 = document.getElementById('phukienmenu');
@@ -318,7 +343,27 @@ el4.addEventListener('mouseout', function handleMouseOut() {
 
 hiddenEl4.addEventListener('mouseover', function handleMouseOver() {
   hiddenEl4.style.display = 'block';
+});    
+                                                                //Tai Khoan Hover
+const el5 = document.getElementById('taikhoanbtn');
+
+const hiddenEl5 = document.getElementById('taikhoanmenu');
+
+el5.addEventListener('mouseover', function handleMouseOver() {
+  hiddenEl5.style.display = 'block';
 });
+
+hiddenEl5.addEventListener('mouseout', function handleMouseOut() {
+  hiddenEl5.style.display = 'none';
+});
+
+el5.addEventListener('mouseout', function handleMouseOut() {
+  hiddenEl5.style.display = 'none';
+});
+
+hiddenEl5.addEventListener('mouseover', function handleMouseOver() {
+  hiddenEl5.style.display = 'block';
+});    
     </script>
 </body>
 </html>

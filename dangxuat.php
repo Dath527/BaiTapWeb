@@ -1,6 +1,4 @@
 <?php
-    unset($_SESSION['tk']);
-    unset($_SESSION['mk']);
-    unset($_SESSION['auth']);
+    session_destroy();
     header('location:trangchu.php');
 ?>

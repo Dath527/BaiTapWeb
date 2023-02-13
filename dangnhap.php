@@ -51,11 +51,12 @@
                 } else{
                     $_SESSION['tk'] = $tk;
                     $_SESSION['mk'] = $mk;
-                    $_SESSION['auth'] = $row['quyen_truy_cap'];
                     $_SESSION['loginTimes'] = 0;
                     $_SESSION['diachi'] = $row['diachi'];
                     $_SESSION['sdt'] = $row['sdt'];
-                    if($_SESSION['auth']==1){
+                    $_SESSION['ten'] = $row['name'];
+                    $_SESSION['auth'] = $row['quyen_truy_cap'];
+                    if($_SESSION['auth']=1){
                         header('location:admin.php');
                     }
                     else header('location:trangchu.php');
@@ -70,9 +71,9 @@
     ?>
     <form method="post">
         <div class="form-login">
-                <li><label>tài khoản  </label><input type="text" name="tk" /></li>
-                <li><label>mật khẩu </label><input type="password" name="mk" /></li>
-                <li><label>ghi nhớ </label><input type="checkbox" name="check" checked="checked" /></li>
-                <li><input type="submit" name="submit" value="Đăng nhập"> <input type="submit" name="dangki" value="Đăng kí" /> </li>
+                <li><div class="chitiettrai">Tài khoản</div><div class="chitietphai"><input class="tk" type="text" name="tk" /></div></li>
+                <li><div class="chitiettrai">Mật khẩu  </div><div class="chitietphai"><input class="mk" type="password" name="mk" /></div></li>
+                <li><div class="chitiettrai">Ghi nhớ   </div><div class="chitietphai"><input class="cb" type="checkbox" name="check" checked="checked" /></div></li>
+                <li><input class="dn" type="submit" name="submit" value="Đăng nhập"> <input class="dk" type="submit" name="dangki" value="Đăng kí" /> </li>
         </div>
     </form>

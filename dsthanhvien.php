@@ -66,9 +66,9 @@
                     <tr>
                         <td><span><?php echo $row['tai_khoan'];?></span></td>
                         <td class="tensanpham"><?php echo $row['mat_khau'];?></a></td>
-                        <td ><span class="price"><?php echo $row['phone'];?></span></td>
+                        <td ><span class="price"><?php echo $row['sdt'];?></span></td>
                         <td ><?php echo $row['name'];?></td>
-                        <td ><?php echo $row['address'];?></td>
+                        <td ><?php echo $row['diachi'];?></td>
                         <td><a  href="xoatv.php?tk=<?php echo $row['tai_khoan'];?>">Xóa</td>
                         </tr>
                 <?php }?>

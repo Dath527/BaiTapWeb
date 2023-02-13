@@ -43,24 +43,24 @@
                         $totalprice=$row['gia_tien'];
                     ?> 
                     <tr>
-                    <td colspan="1" class="bentrai"><div class="chitiettrai">Mã hóa đơn: </div></td>
-                        <td colspan="5"><div class="chitietphai"><?php echo $row['ID'] ?></div></td>   
+                        <td colspan="1" class="bentrai"><div class="chitiettrai">Mã hóa đơn </div></td>
+                        <td colspan="5"><div class="chitietphai">: <?php echo $row['ID'] ?></div></td>   
                     </tr>
                     <tr>
-                        <td colspan="1" class="bentrai"><div class="chitiettrai">Chi tiết HĐ: </div></td>
-                        <td colspan="5"><div class="chitietphai"><?php echo $row['chi_tiet_hd'] ?></div></td>   
+                        <td colspan="1" class="bentrai"><div class="chitiettrai">Chi tiết HĐ </div></td>
+                        <td colspan="5"><div class="chitietphai">: <?php echo $row['chi_tiet_hd'] ?></div></td>   
                     </tr>
                     <tr>
-                        <td colspan="1" class="bentrai"><div class="chitiettrai">Tổng giá: </div></td>
-                        <td colspan="5"><adiv class="chitietphai"><?php echo $totalprice; ?> VNĐ</div></td>
+                        <td colspan="1" class="bentrai"><div class="chitiettrai">Tổng giá </div></td>
+                        <td colspan="5"><adiv class="chitietphai">: <?php echo $totalprice; ?> VNĐ</div></td>
                     </tr>
                     <tr>
-                        <td colspan="1" class="bentrai"><div class="chitiettrai">Số điện thoại: </div></td>
-                        <td colspan="5"><div class="chitietphai"><?php echo $row['sdt']; ?></div></td>
+                        <td colspan="1" class="bentrai"><div class="chitiettrai">Số điện thoại </div></td>
+                        <td colspan="5"><div class="chitietphai">: <?php echo $row['sdt']; ?></div></td>
                     </tr>
                     <tr>
-                        <td colspan="1" class="bentrai"><div class="chitiettrai">Địa chỉ: </div></td>
-                        <td colspan="5"><div class="chitietphai"><?php echo $row['diachi']; ?></div></td>
+                        <td colspan="1" class="bentrai"><div class="chitiettrai">Địa chỉ </div></td>
+                        <td colspan="5"><div class="chitietphai">: <?php echo $row['diachi']; ?></div></td>
                     </tr>
                     <?php
                     }

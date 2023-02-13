@@ -1,5 +1,6 @@
 <?php
     ob_start();
+    session_start();
     require('ketnoi.php');
     // Nhận biến Page(Số thứ tự của Trang)
     if(isset($_GET['page'])){
@@ -128,10 +129,19 @@
                 <li><div class="tab"><a href="">Giỏ hàng</a></div></li>
                 <?php
                   if(isset($_SESSION['tk'])){
-                      echo '<li><div class="tab"><a href="trangchu.php?page_layout=dangxuat">Đăng xuất</a></div></li>';
+                      echo '<li><div class="tab" id="taikhoanbtn"><a>'.$_SESSION['ten'].'</a></div>'
+                      .'<div class="box">'
+                   .'<ul class="sub-menu" id="taikhoanmenu">'
+                        .'<li><div class="tabbox"><a href="admin.php?page_layout=taikhoan">Thông tin tài khoản</a></div></li>'
+                        .'<li><div class="tabbox"><a href="admin.php?page_layout=matkhau">Đổi mật khẩu</a></div></li>'
+                        .'<li><div class="tabbox"><a href="admin.php?page_layout=lichsu">Lịch sử mua hàng</a></div></li>'
+                        .'<li><div class="tabbox"><a href="admin.php?page_layout=dangxuat">Đăng xuất</a></div></li>'
+                .'</ul>'
+                .'</div>'
+                .'</li>';
                     }
                   else{
-                    echo '<li><div class="tab"><a href="trangchu.php?page_layout=dangnhap">Đăng nhập</a></div></li>';
+                    echo '<li><div class="tab"><a href="admin.php?page_layout=dangnhap">Đăng nhập</a></div></li>';
                   }
                 ?>
             </ul>
@@ -257,6 +267,26 @@ el4.addEventListener('mouseout', function handleMouseOut() {
 hiddenEl4.addEventListener('mouseover', function handleMouseOver() {
   hiddenEl4.style.display = 'block';
 });
+                                                                    //tai khoan Hover
+const el5 = document.getElementById('taikhoanbtn');
+
+const hiddenEl5 = document.getElementById('taikhoanmenu');
+
+el5.addEventListener('mouseover', function handleMouseOver() {
+  hiddenEl5.style.display = 'block';
+});
+
+hiddenEl5.addEventListener('mouseout', function handleMouseOut() {
+  hiddenEl5.style.display = 'none';
+});
+
+el5.addEventListener('mouseout', function handleMouseOut() {
+  hiddenEl5.style.display = 'none';
+});
+
+hiddenEl5.addEventListener('mouseover', function handleMouseOver() {
+  hiddenEl5.style.display = 'block';
+});    
     </script>
 </body>
 </html>
