@@ -6,7 +6,7 @@
     else{
         $page = 1;
     }
-    // Hiển thị số Sản phẩm trên một trang
+    // Hiển thị số Sản phẩm trên một trang 78
     $rowsPerPage = 15;
 
     // Tính vị trí mẩu tin đầu tiên của mỗi trang
