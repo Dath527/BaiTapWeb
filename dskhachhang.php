@@ -44,7 +44,7 @@
         <div class="title">Quản lý khách hàng</div>
             <table>
                 <tr>
-                    <th width="5%">Tài khoản</th>
+                    <th width="5%">Vũ Tiến Đạt</th>
                     <th width="20%">Mật khẩu</th>
                     <th width="10%">Số điện thoại</th>
                     <th width="10%">Họ Tên</th>
